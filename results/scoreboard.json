@@ -1,0 +1,687 @@
+{
+  "today": "2026-10-05",
+  "recommenders": {
+    "rules": {
+      "status": "ran",
+      "model": "keyword rules",
+      "aggregate": {
+        "deals": 12,
+        "expected": 15,
+        "proposed": 9,
+        "correct": 3,
+        "correctCited": 3,
+        "wrongValue": 1,
+        "missed": 11,
+        "spurious": 4,
+        "unsupported": 0,
+        "riskRecall": 0,
+        "noChangeDeals": 2,
+        "noChangeDealsUntouched": 1
+      },
+      "perDeal": [
+        {
+          "dealId": "d-01",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 2,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 1,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": []
+        },
+        {
+          "dealId": "d-02",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 1,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": []
+        },
+        {
+          "dealId": "d-03",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 2,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": []
+        },
+        {
+          "dealId": "d-04",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-05",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 3,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 3,
+          "risksExpected": 1,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-06",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 0,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": true,
+          "untouched": true,
+          "verdicts": []
+        },
+        {
+          "dealId": "d-07",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "optional",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-08",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 1,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "wrong"
+          ]
+        },
+        {
+          "dealId": "d-09",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-10",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-11",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 0,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": true,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-12",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        }
+      ]
+    },
+    "naive": {
+      "status": "ran",
+      "model": "claude-haiku-4-5-20251001",
+      "aggregate": {
+        "deals": 12,
+        "expected": 15,
+        "proposed": 25,
+        "correct": 10,
+        "correctCited": 10,
+        "wrongValue": 3,
+        "missed": 2,
+        "spurious": 7,
+        "unsupported": 1,
+        "riskRecall": 0.3333333333333333,
+        "noChangeDeals": 2,
+        "noChangeDealsUntouched": 0
+      },
+      "perDeal": [
+        {
+          "dealId": "d-01",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 1,
+          "unsupported": 1,
+          "expected": 2,
+          "risksExpected": 1,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-02",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 1,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-03",
+          "correct": 2,
+          "correctCited": 2,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious",
+            "correct",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-04",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-05",
+          "correct": 3,
+          "correctCited": 3,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 3,
+          "risksExpected": 1,
+          "risksFound": 1,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "correct",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-06",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 0,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": true,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-07",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-08",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-09",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 1,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "wrong",
+            "correct",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-10",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 1,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "wrong",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-11",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 0,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": true,
+          "untouched": false,
+          "verdicts": [
+            "spurious"
+          ]
+        },
+        {
+          "dealId": "d-12",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 1,
+          "missed": 0,
+          "spurious": 1,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "spurious",
+            "wrong",
+            "optional"
+          ]
+        }
+      ]
+    },
+    "bonjour": {
+      "status": "ran",
+      "model": "claude-haiku-4-5-20251001",
+      "aggregate": {
+        "deals": 12,
+        "expected": 15,
+        "proposed": 18,
+        "correct": 14,
+        "correctCited": 14,
+        "wrongValue": 0,
+        "missed": 1,
+        "spurious": 0,
+        "unsupported": 0,
+        "riskRecall": 1,
+        "noChangeDeals": 2,
+        "noChangeDealsUntouched": 2
+      },
+      "perDeal": [
+        {
+          "dealId": "d-01",
+          "correct": 2,
+          "correctCited": 2,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 1,
+          "risksFound": 1,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-02",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 1,
+          "risksFound": 1,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-03",
+          "correct": 2,
+          "correctCited": 2,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-04",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-05",
+          "correct": 3,
+          "correctCited": 3,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 3,
+          "risksExpected": 1,
+          "risksFound": 1,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "correct",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-06",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 0,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": true,
+          "untouched": true,
+          "verdicts": []
+        },
+        {
+          "dealId": "d-07",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "optional",
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-08",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-09",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 1,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 2,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct",
+            "optional"
+          ]
+        },
+        {
+          "dealId": "d-10",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct"
+          ]
+        },
+        {
+          "dealId": "d-11",
+          "correct": 0,
+          "correctCited": 0,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 0,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": true,
+          "untouched": true,
+          "verdicts": []
+        },
+        {
+          "dealId": "d-12",
+          "correct": 1,
+          "correctCited": 1,
+          "wrongValue": 0,
+          "missed": 0,
+          "spurious": 0,
+          "unsupported": 0,
+          "expected": 1,
+          "risksExpected": 0,
+          "risksFound": 0,
+          "noChangeDeal": false,
+          "untouched": false,
+          "verdicts": [
+            "correct"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,664 @@
+{
+  "d-01": {
+    "rules": [],
+    "naive": [
+      {
+        "field": "closeDate",
+        "from": "2026-10-30",
+        "to": "2027-02-01",
+        "reason": "Glen (CFO) put all new software spend on hold until fiscal year starts in January, with signing not possible before February 1.",
+        "evidence": {
+          "activityId": "a-01-4",
+          "quote": "Glen told us on Thursday that all new software spend is on hold until our fiscal year starts in January, so we won't be able to sign anything before February 1."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Dana to review proposal with CFO",
+        "to": "Check in with Dana later in October, then prepare for sandbox follow-up and January budget cycle restart.",
+        "reason": "Sandbox week completed successfully with positive feedback; team in waiting period until new fiscal year begins in January.",
+        "evidence": {
+          "activityId": "a-01-4",
+          "quote": "Sandbox week went better than expected with dispatch leads rebuilding schedules efficiently."
+        },
+        "supported": false
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "closeDate",
+        "from": "2026-10-30",
+        "to": "2027-02-01",
+        "reason": "Glen Ashby informed Dana that all new software spend is on hold until their fiscal year starts in January, so they cannot sign before February 1.",
+        "evidence": {
+          "activityId": "a-01-4",
+          "quote": "Glen told us on Thursday that all new software spend is on hold until our fiscal year starts in January, so we won't be able to sign anything before February 1."
+        },
+        "supported": true
+      },
+      {
+        "field": "risk",
+        "from": "",
+        "to": "All new software spend is on hold until fiscal year 2027 starts in January.",
+        "reason": "Glen's budget freeze creates a timing risk that delays the close from October to February.",
+        "evidence": {
+          "activityId": "a-01-4",
+          "quote": "Glen told us on Thursday that all new software spend is on hold until our fiscal year starts in January, so we won't be able to sign anything before February 1."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-02": {
+    "rules": [],
+    "naive": [
+      {
+        "field": "nextStep",
+        "from": "Send renewal order form",
+        "to": "Wait for Ray Dunbar's decision on pricing",
+        "reason": "Rosa Mendez is taking the renewal proposal with the price hold deadline to Ray Dunbar for approval, as he must sign off on deals over $25k.",
+        "evidence": {
+          "activityId": "a-02-4",
+          "quote": "I'll take it to Ray, who already thinks we pay too much for software, and I'll let you know what he says."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "risk",
+        "from": "",
+        "to": "Ray may resist price increase pressure and delay signing past October 31 deadline.",
+        "reason": "Rosa's sarcastic tone and mention that Ray already thinks they pay too much suggests resistance to the price-by-date ultimatum.",
+        "evidence": {
+          "activityId": "a-02-4",
+          "quote": "Sure, another price increase, sounds great. I'll take it to Ray, who already thinks we pay too much for software"
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-03": {
+    "rules": [],
+    "naive": [
+      {
+        "field": "stage",
+        "from": "Demo",
+        "to": "Review",
+        "reason": "IT Director Sam Kowalski initiated security review process, indicating deal has progressed beyond initial demo to evaluation phase.",
+        "evidence": {
+          "activityId": "a-03-3",
+          "quote": "any new system that touches customer addresses goes through me before purchasing will look at it"
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Follow up after demo",
+        "to": "Obtain IT security review approval from Sam Kowalski",
+        "reason": "Sam Kowalski requires SOC 2 report and security documentation before purchase can proceed, making this the critical next milestone.",
+        "evidence": {
+          "activityId": "a-03-3",
+          "quote": "I'll need your SOC 2 report and a short write-up on SSO and how long you keep job data"
+        },
+        "supported": true
+      },
+      {
+        "field": "addContact",
+        "from": "",
+        "to": "Sam Kowalski, IT Director, sam.kowalski@brightlineplumbing.example",
+        "reason": "Sam Kowalski has become an active decision-maker in the deal by conducting the security review, necessitating his addition to the deal contacts.",
+        "evidence": {
+          "activityId": "a-03-3",
+          "quote": "I run IT here, and any new system that touches customer addresses goes through me before purchasing"
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "addContact",
+        "from": "",
+        "to": "Sam Kowalski, IT Director, sam.kowalski@brightlineplumbing.example, ct-sam-kowalski",
+        "reason": "Sam Kowalski from IT has joined the deal and is conducting the security review before purchasing can proceed.",
+        "evidence": {
+          "activityId": "a-03-3",
+          "quote": "The other Sam passed along your demo recording. I run IT here, and any new system that touches customer addresses goes through me before purchasing will look at it."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Follow up after demo",
+        "to": "Await IT security review completion from Sam Kowalski.",
+        "reason": "The deal is now blocked on Sam Kowalski's IT security review, which is the immediate next step.",
+        "evidence": {
+          "activityId": "a-03-5",
+          "quote": "He is happy with the demo and is waiting on the IT security review to finish before he takes it to the owner."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-04": {
+    "rules": [
+      {
+        "field": "nextStep",
+        "from": "Waiting on Northgate legal",
+        "to": "Procurement Lead",
+        "reason": "Latest email asks for something.",
+        "evidence": {
+          "activityId": "a-04-3",
+          "quote": "Procurement Lead"
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "closeDate",
+        "from": "2026-10-31",
+        "to": "2027-01-15",
+        "reason": "Northgate legal team has a backlog and will not review the agreement until December, pushing expected signature to mid-January.",
+        "evidence": {
+          "activityId": "a-04-4",
+          "quote": "Legal has a backlog from their own union contract renewal and will not get to our agreement until December. Victor now expects signature around January 15."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Waiting on Northgate legal",
+        "to": "Legal review underway, redlines expected in December",
+        "reason": "Agreement is now actively in legal review with expected timeline clarified.",
+        "evidence": {
+          "activityId": "a-04-3",
+          "quote": "The agreement is with legal now. I'll let you know when we have their redlines."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "closeDate",
+        "from": "2026-10-31",
+        "to": "2027-01-15",
+        "reason": "Legal has delayed review due to their union contract renewal backlog and now expects signature around January 15.",
+        "evidence": {
+          "activityId": "a-04-4",
+          "quote": "Legal has a backlog from their own union contract renewal and will not get to our agreement until December. Victor now expects signature around January 15."
+        },
+        "supported": true
+      },
+      {
+        "field": "risk",
+        "from": "",
+        "to": "Legal backlog delays contract review; signature pushed to January 2027.",
+        "reason": "Legal team backlog from union contract renewal is blocking agreement review and extending close date to January.",
+        "evidence": {
+          "activityId": "a-04-4",
+          "quote": "Legal has a backlog from their own union contract renewal and will not get to our agreement until December."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-05": {
+    "rules": [
+      {
+        "field": "stage",
+        "from": "Demo",
+        "to": "Proposal",
+        "reason": "Positive reply, advance one stage.",
+        "evidence": {
+          "activityId": "a-05-4",
+          "quote": "Marcus, great to meet you."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "contactLeft",
+        "from": "",
+        "to": "ct-priya-nair",
+        "reason": "Priya Nair notified that she is leaving Coastal Garage Doors on October 20th and handed over the deal to Marcus Bell.",
+        "evidence": {
+          "activityId": "a-05-3",
+          "quote": "I've accepted a role at another company and my last day here is the 20th."
+        },
+        "supported": true
+      },
+      {
+        "field": "addContact",
+        "from": "",
+        "to": "Marcus Bell, General Manager, marcus.bell@coastaldoors.example",
+        "reason": "Marcus Bell is taking over the deal from Priya Nair as the new primary contact at Coastal Garage Doors.",
+        "evidence": {
+          "activityId": "a-05-3",
+          "quote": "I've copied Marcus Bell, our General Manager (marcus.bell@coastaldoors.example), who will be taking it over from here."
+        },
+        "supported": true
+      },
+      {
+        "field": "risk",
+        "from": "",
+        "to": "Key contact transition - Priya Nair departed; relationship continuity depends on Marcus Bell's engagement.",
+        "reason": "Loss of the original champion (Priya) who initiated and drove the deal creates risk, though she has transferred responsibility to Marcus Bell.",
+        "evidence": {
+          "activityId": "a-05-3",
+          "quote": "I've accepted a role at another company and my last day here is the 20th."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "contactLeft",
+        "from": "",
+        "to": "ct-priya-nair",
+        "reason": "Priya Nair is leaving Coastal Garage Doors on October 20th and will no longer be the driver of this deal.",
+        "evidence": {
+          "activityId": "a-05-3",
+          "quote": "I've accepted a role at another company and my last day here is the 20th."
+        },
+        "supported": true
+      },
+      {
+        "field": "addContact",
+        "from": "",
+        "to": "Marcus Bell, General Manager, marcus.bell@coastaldoors.example",
+        "reason": "Marcus Bell is taking over the deal from Priya Nair as the new point of contact at Coastal Garage Doors.",
+        "evidence": {
+          "activityId": "a-05-3",
+          "quote": "Marcus Bell, our General Manager (marcus.bell@coastaldoors.example), who will be taking it over from here."
+        },
+        "supported": true
+      },
+      {
+        "field": "risk",
+        "from": "",
+        "to": "Key champion Priya Nair is leaving the company on October 20th, creating potential deal disruption.",
+        "reason": "Loss of the original deal driver and champion threatens continuity and momentum, especially during the critical pilot phase.",
+        "evidence": {
+          "activityId": "a-05-3",
+          "quote": "I've accepted a role at another company and my last day here is the 20th."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-06": {
+    "rules": [],
+    "naive": [
+      {
+        "field": "nextStep",
+        "from": "Demo for crew leads on Oct 8",
+        "to": "Follow up after crew lead demo on Oct 8",
+        "reason": "Demo is scheduled for October 8 at 10am with four crew leads confirmed by Luis Ferreira, so next step should be to follow up after the demo occurs.",
+        "evidence": {
+          "activityId": "a-06-2",
+          "quote": "October 8 at 10am works for the crew lead demo. I'll have four of them in the room."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": []
+  },
+  "d-07": {
+    "rules": [
+      {
+        "field": "stage",
+        "from": "Proposal",
+        "to": "Negotiation",
+        "reason": "Positive reply, advance one stage.",
+        "evidence": {
+          "activityId": "a-07-4",
+          "quote": "Thanks Erin, that's great news."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Waiting on budget approval from Ken",
+        "to": "I'll get the order form over today.",
+        "reason": "Latest email asks for something.",
+        "evidence": {
+          "activityId": "a-07-4",
+          "quote": "I'll get the order form over today."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "stage",
+        "from": "Proposal",
+        "to": "Closed Won",
+        "reason": "Ken Moriarty approved the budget and Erin Blake confirmed they are ready to sign the order form.",
+        "evidence": {
+          "activityId": "a-07-3",
+          "quote": "Ken signed off on the budget yesterday, so please send over the order form and we'll get it signed."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Waiting on budget approval from Ken",
+        "to": "Send order form to Erin Blake for signature",
+        "reason": "Budget approval has been received and the next step is to send the order form for signature.",
+        "evidence": {
+          "activityId": "a-07-3",
+          "quote": "Ken signed off on the budget yesterday, so please send over the order form and we'll get it signed."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "stage",
+        "from": "Proposal",
+        "to": "Negotiation",
+        "reason": "Ken signed off on the budget and Erin requested the order form be sent for signature.",
+        "evidence": {
+          "activityId": "a-07-3",
+          "quote": "Ken signed off on the budget yesterday, so please send over the order form and we'll get it signed."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Waiting on budget approval from Ken",
+        "to": "Send order form to Erin for signature.",
+        "reason": "Budget approval received; next action is to deliver and obtain signature on order form.",
+        "evidence": {
+          "activityId": "a-07-3",
+          "quote": "Ken signed off on the budget yesterday, so please send over the order form and we'll get it signed."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-08": {
+    "rules": [
+      {
+        "field": "amount",
+        "from": "13500",
+        "to": "21600",
+        "reason": "Seats times per seat price.",
+        "evidence": {
+          "activityId": "a-08-3",
+          "quote": "40 seats would be $21,600 per year."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "amount",
+        "from": "13500",
+        "to": "17280",
+        "reason": "Tasha confirmed 32 seats at $540 per seat per year for the starter plan ($540 × 32 = $17,280).",
+        "evidence": {
+          "activityId": "a-08-4",
+          "quote": "let's do 32 seats to start and add more in the spring"
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Confirm seat count with Tasha",
+        "to": "Send updated order form for 32 seats to Tasha",
+        "reason": "Tasha confirmed the seat count (32) and explicitly requested the updated order form this week.",
+        "evidence": {
+          "activityId": "a-08-4",
+          "quote": "She wants the updated order form this week."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "amount",
+        "from": "13500",
+        "to": "17280",
+        "reason": "Tasha confirmed 32 seats at $540 per seat per year instead of the original 25 seats.",
+        "evidence": {
+          "activityId": "a-08-4",
+          "quote": "let's do 32 seats to start and add more in the spring"
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Confirm seat count with Tasha",
+        "to": "Send updated order form for 32 seats.",
+        "reason": "Tasha confirmed the seat count and explicitly requested the updated order form this week.",
+        "evidence": {
+          "activityId": "a-08-4",
+          "quote": "She wants the updated order form this week."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-09": {
+    "rules": [
+      {
+        "field": "nextStep",
+        "from": "Follow up on proposal",
+        "to": "Send everything back to me and I'll route it to procurement.",
+        "reason": "Latest email asks for something.",
+        "evidence": {
+          "activityId": "a-09-4",
+          "quote": "Send everything back to me and I'll route it to procurement."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "stage",
+        "from": "Proposal",
+        "to": "Qualification",
+        "reason": "Client reviewed proposal and approved the 90 seats; now requires vendor documentation (security questionnaire, W-9, certificate of insurance) before procurement can issue PO.",
+        "evidence": {
+          "activityId": "a-09-3",
+          "quote": "We reviewed the proposal and we're good to move forward on the 90 seats. Before procurement can issue a PO, our vendor management team needs you to complete the attached security questionnaire and send over a W-9 and your certificate of insurance."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "Follow up on proposal",
+        "to": "Complete security questionnaire and send W-9 and certificate of insurance to Beth Larsen.",
+        "reason": "Client provided specific next steps required before procurement can proceed with PO.",
+        "evidence": {
+          "activityId": "a-09-3",
+          "quote": "Before procurement can issue a PO, our vendor management team needs you to complete the attached security questionnaire and send over a W-9 and your certificate of insurance."
+        },
+        "supported": true
+      },
+      {
+        "field": "addContact",
+        "from": "",
+        "to": "Beth Larsen, Vendor Management Specialist, blarsen@pinecrestpm.example",
+        "reason": "Beth Larsen from vendor management team is now directly involved in the deal as the point of contact for vendor onboarding.",
+        "evidence": {
+          "activityId": "a-09-4",
+          "quote": "Nice to meet you. The questionnaire is 60 questions and most vendors finish in a few days. Send everything back to me and I'll route it to procurement."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "stage",
+        "from": "Proposal",
+        "to": "Negotiation",
+        "reason": "Buyer has agreed in principle and paperwork is in motion: security questionnaire, W-9, and certificate of insurance.",
+        "evidence": {
+          "activityId": "a-09-3",
+          "quote": "We reviewed the proposal and we're good to move forward on the 90 seats. Before procurement can issue a PO, our vendor management team needs you to complete the attached security questionnaire and send over a W-9 and your certificate of insurance."
+        },
+        "supported": true
+      },
+      {
+        "field": "addContact",
+        "from": "",
+        "to": "Beth Larsen, Vendor Management Specialist, blarsen@pinecrestpm.example",
+        "reason": "Beth Larsen from vendor onboarding has joined the deal and will route completed questionnaire to procurement.",
+        "evidence": {
+          "activityId": "a-09-3",
+          "quote": "I've copied Beth Larsen, who runs vendor onboarding."
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-10": {
+    "rules": [
+      {
+        "field": "stage",
+        "from": "Negotiation",
+        "to": "Closed Lost",
+        "reason": "Customer said they are not moving forward.",
+        "evidence": {
+          "activityId": "a-10-4",
+          "quote": "After a lot of back and forth, we've decided to go with another vendor."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "stage",
+        "from": "Negotiation",
+        "to": "Lost",
+        "reason": "Customer decided to go with a competing vendor due to existing accounting system integration.",
+        "evidence": {
+          "activityId": "a-10-4",
+          "quote": "After a lot of back and forth, we've decided to go with another vendor. In the end it came down to their existing integration with our accounting system."
+        },
+        "supported": true
+      },
+      {
+        "field": "risk",
+        "from": "",
+        "to": "Competitor had existing accounting system integration which was a key decision factor.",
+        "reason": "The lost deal reveals that accounting system integration is a critical competitive differentiator for this customer segment.",
+        "evidence": {
+          "activityId": "a-10-4",
+          "quote": "In the end it came down to their existing integration with our accounting system."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "stage",
+        "from": "Negotiation",
+        "to": "Closed Lost",
+        "reason": "Nils Halvorsen confirmed they decided to go with another vendor.",
+        "evidence": {
+          "activityId": "a-10-4",
+          "quote": "we've decided to go with another vendor"
+        },
+        "supported": true
+      }
+    ]
+  },
+  "d-11": {
+    "rules": [
+      {
+        "field": "stage",
+        "from": "Demo",
+        "to": "Proposal",
+        "reason": "Positive reply, advance one stage.",
+        "evidence": {
+          "activityId": "a-11-4",
+          "quote": "Thanks Theo, great, we'll take a look before the 14th."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "nextStep",
+        "from": "Pilot review call on Oct 14",
+        "to": "Pilot review call on October 14 to review regional data across 70 cleaners",
+        "reason": "Activity confirms pilot kickoff happened on Sept 15 with specific scope (2 regions, 70 cleaners, 4-week pilot) and June Park confirmed pilot is progressing well through week one.",
+        "evidence": {
+          "activityId": "a-11-1",
+          "quote": "Two regions, 70 cleaners, four week pilot. Pilot review call is booked for October 14."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": []
+  },
+  "d-12": {
+    "rules": [
+      {
+        "field": "nextStep",
+        "from": "CFO approval on order form",
+        "to": "Our CFO is traveling this week, so the order form will sit until she is back.",
+        "reason": "Latest email asks for something.",
+        "evidence": {
+          "activityId": "a-12-3",
+          "quote": "Our CFO is traveling this week, so the order form will sit until she is back."
+        },
+        "supported": true
+      }
+    ],
+    "naive": [
+      {
+        "field": "stage",
+        "from": "Negotiation",
+        "to": "Closed Won",
+        "reason": "CFO approval has been obtained and deal is moving to signing, indicating closure.",
+        "evidence": {
+          "activityId": "a-12-4",
+          "quote": "Their CFO approved the order form on Friday."
+        },
+        "supported": true
+      },
+      {
+        "field": "closeDate",
+        "from": "2026-10-30",
+        "to": "2026-10-07",
+        "reason": "Jordan confirmed he will sign the order form next Tuesday (October 7th), which is the actual close date.",
+        "evidence": {
+          "activityId": "a-12-4",
+          "quote": "Jordan will sign next Tuesday."
+        },
+        "supported": true
+      },
+      {
+        "field": "nextStep",
+        "from": "CFO approval on order form",
+        "to": "Obtain signed order form from Jordan Pike",
+        "reason": "CFO approval has been completed; the next step is now to receive the signed document from Jordan.",
+        "evidence": {
+          "activityId": "a-12-4",
+          "quote": "Their CFO approved the order form on Friday."
+        },
+        "supported": true
+      }
+    ],
+    "bonjour": [
+      {
+        "field": "closeDate",
+        "from": "2026-10-30",
+        "to": "2026-10-13",
+        "reason": "Jordan confirmed the CFO approved the order form and he will sign next Tuesday (October 13).",
+        "evidence": {
+          "activityId": "a-12-4",
+          "quote": "Their CFO approved the order form on Friday. Tomorrow is their quarterly safety day and nobody is at a desk, so Jordan will sign next Tuesday."
+        },
+        "supported": true
+      }
+    ]
+  }
+}
