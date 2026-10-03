@@ -5,7 +5,7 @@ import type { RecommenderId } from "./types";
 import type { VerifiedChange } from "./verify";
 
 export type Run =
-  | { status: "ran"; model: string; aggregate: Aggregate; perDeal: DealScore[] }
+  | { status: "ran"; model: string; ranAt?: string; aggregate: Aggregate; perDeal: DealScore[] }
   | { status: "not_run"; reason: string };
 
 export type Scoreboard = { today: string; recommenders: Record<RecommenderId, Run> };

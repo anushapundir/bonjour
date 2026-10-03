@@ -4,6 +4,7 @@
     "rules": {
       "status": "ran",
       "model": "keyword rules",
+      "ranAt": "2026-10-04",
       "aggregate": {
         "deals": 12,
         "expected": 15,
@@ -221,6 +222,7 @@
     "naive": {
       "status": "ran",
       "model": "claude-haiku-4-5-20251001",
+      "ranAt": "2026-10-04",
       "aggregate": {
         "deals": 12,
         "expected": 15,
@@ -458,6 +460,7 @@
     "bonjour": {
       "status": "ran",
       "model": "claude-haiku-4-5-20251001",
+      "ranAt": "2026-10-04",
       "aggregate": {
         "deals": 12,
         "expected": 15,

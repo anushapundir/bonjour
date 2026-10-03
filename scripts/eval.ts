@@ -35,7 +35,7 @@ async function runAll(recommend: Recommender, model: string) {
     const label = labels.find((l) => l.dealId === d.id)!;
     return scoreDeal(label, changes[i]!, getDeal(d.id)!.ctx.contacts);
   });
-  const run: Run = { status: "ran", model, aggregate: aggregate(perDeal), perDeal };
+  const run: Run = { status: "ran", model, ranAt: new Date().toISOString().slice(0, 10), aggregate: aggregate(perDeal), perDeal };
   return { run, changes };
 }
 
