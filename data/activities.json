@@ -1,0 +1,466 @@
+[
+  {
+    "id": "a-01-1",
+    "dealId": "d-01",
+    "kind": "meeting",
+    "at": "2026-09-14T15:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Demo with Dana Whitfield and two dispatchers. They run 60 field techs across three branches and still build the schedule in a shared spreadsheet every morning. Biggest pain is reshuffling the day when an emergency call comes in. Dana liked the drag and drop board and the tech mobile app. Asked for a proposal for all 60 techs."
+  },
+  {
+    "id": "a-01-2",
+    "dealId": "d-01",
+    "kind": "email",
+    "at": "2026-09-18T17:20:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "to": "Dana Whitfield <dana.whitfield@kettlebrook.example>",
+    "subject": "Fieldnote proposal for Kettlebrook",
+    "body": "Hi Dana,\n\nThanks again for the time on Monday. As promised, the proposal is attached: 60 technician seats at $600 per seat per year, so $36,000 annually, including onboarding for your three dispatch leads.\n\nHappy to walk Glen through it whenever useful.\n\nBest,\nMaya Lindgren\nAccount Executive, Fieldnote\n(415) 555-0142"
+  },
+  {
+    "id": "a-01-3",
+    "dealId": "d-01",
+    "kind": "call",
+    "at": "2026-09-25T16:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Quick check-in with Dana. She has shared the proposal with Glen (CFO). No pushback on price so far. She wants the dispatch leads in the sandbox next week before anything goes further."
+  },
+  {
+    "id": "a-01-4",
+    "dealId": "d-01",
+    "kind": "email",
+    "at": "2026-10-02T21:45:00Z",
+    "from": "Dana Whitfield <dana.whitfield@kettlebrook.example>",
+    "to": "Maya Lindgren <maya@fieldnote.example>",
+    "subject": "Sandbox week",
+    "body": "Hi Maya,\n\nHope your week has been good! I wanted to send a proper update since the team has been in the sandbox all week.\n\nHonestly it went better than I expected. Carla and Mike, two of our dispatch leads, rebuilt Tuesday's whole schedule in about twenty minutes, which normally eats most of their morning. The techs who tried the mobile app liked that the job notes and photos are right there, and nobody asked me how to log in twice, which for this group is a small miracle. Mike did ask whether we can color code jobs by branch on the board. Is that something you can turn on, or is it on the roadmap?\n\nA couple of smaller questions while I have you:\n1. Can we import our existing customer list from a CSV, or does that need to go through your team?\n2. Is there a way to see drive time between jobs on the board?\n\nAlso, thank you for the restaurant tip in Portland. We went on Saturday and the brisket was as good as you said.\n\nTalk soon,\nDana\n\nDana Whitfield\nDirector of Operations, Kettlebrook Heating & Air\n\nP.S. Before I forget: Glen told us on Thursday that all new software spend is on hold until our fiscal year starts in January, so we won't be able to sign anything before February 1. I'm still pushing for this internally, I just wanted you to hear it from me."
+  },
+  {
+    "id": "a-01-5",
+    "dealId": "d-01",
+    "kind": "email",
+    "at": "2026-10-02T22:10:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "to": "Dana Whitfield <dana.whitfield@kettlebrook.example>",
+    "subject": "Re: Sandbox week",
+    "body": "Hi Dana,\n\nSo glad the sandbox week went well, and thanks for the honest note. Answers: yes on CSV import, color by branch is a setting I can turn on today, and drive time is on the board under View.\n\nI'll check back in with you later this month.\n\nMaya Lindgren\nAccount Executive, Fieldnote\n(415) 555-0142"
+  },
+  {
+    "id": "a-02-1",
+    "dealId": "d-02",
+    "kind": "call",
+    "at": "2026-09-08T18:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "body": "Renewal kickoff with Rosa Mendez. They want to go from 55 to 80 seats as they add the two new branches. Rosa is happy with the product. Ray Dunbar signs anything over $25k."
+  },
+  {
+    "id": "a-02-2",
+    "dealId": "d-02",
+    "kind": "email",
+    "at": "2026-09-16T16:30:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "to": "Rosa Mendez <rmendez@larkspurpest.example>",
+    "subject": "Larkspur renewal",
+    "body": "Hi Rosa,\n\nHere is the renewal for 80 seats at $600 per seat per year, $48,000 total. Our order form is attached.\n\nTheo Brandt\nAccount Executive, Fieldnote\n(415) 555-0177"
+  },
+  {
+    "id": "a-02-3",
+    "dealId": "d-02",
+    "kind": "email",
+    "at": "2026-09-29T15:05:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "to": "Rosa Mendez <rmendez@larkspurpest.example>",
+    "subject": "Re: Larkspur renewal",
+    "body": "Hi Rosa,\n\nOne heads up I owe you: our list price moves to $650 per seat on November 1. I can hold your $600 rate if the order form is signed by October 31. Let me know if a quick call with Ray would help.\n\nTheo Brandt\nAccount Executive, Fieldnote\n(415) 555-0177"
+  },
+  {
+    "id": "a-02-4",
+    "dealId": "d-02",
+    "kind": "email",
+    "at": "2026-10-01T14:12:00Z",
+    "from": "Rosa Mendez <rmendez@larkspurpest.example>",
+    "to": "Theo Brandt <theo@fieldnote.example>",
+    "subject": "Re: Larkspur renewal",
+    "body": "Theo,\n\nSure, another price increase, sounds great. I'll take it to Ray, who already thinks we pay too much for software, and I'll let you know what he says.\n\nRosa\n\nRosa Mendez\nService Operations Manager, Larkspur Pest Control"
+  },
+  {
+    "id": "a-03-1",
+    "dealId": "d-03",
+    "kind": "meeting",
+    "at": "2026-09-17T17:00:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "body": "Demo for Sam Reyes and the dispatch team. 45 plumbers, two dispatchers. They want routing by skill (gas line certified vs not). Sam Reyes said he'd share the recording internally."
+  },
+  {
+    "id": "a-03-2",
+    "dealId": "d-03",
+    "kind": "email",
+    "at": "2026-09-22T19:40:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "to": "Sam Reyes <sam.reyes@brightlineplumbing.example>",
+    "subject": "Brightline demo follow-up",
+    "body": "Hi Sam,\n\nThanks for the time last week. Recording and pricing are attached: 45 seats at $600 per seat per year. Let me know who else should see it.\n\nInes Carvalho\nSenior Account Executive, Fieldnote\n(415) 555-0119"
+  },
+  {
+    "id": "a-03-3",
+    "dealId": "d-03",
+    "kind": "email",
+    "at": "2026-09-29T13:55:00Z",
+    "from": "Sam Kowalski <sam.kowalski@brightlineplumbing.example>",
+    "to": "Ines Carvalho <ines@fieldnote.example>",
+    "subject": "Security review for Fieldnote",
+    "body": "Hi Ines,\n\nThe other Sam passed along your demo recording. I run IT here, and any new system that touches customer addresses goes through me before purchasing will look at it. I'll need your SOC 2 report and a short write-up on SSO and how long you keep job data. Once I have those I can usually turn a review around in a week or two.\n\nSam\n\nSam Kowalski\nIT Director, Brightline Plumbing"
+  },
+  {
+    "id": "a-03-4",
+    "dealId": "d-03",
+    "kind": "email",
+    "at": "2026-10-01T16:20:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "to": "Sam Kowalski <sam.kowalski@brightlineplumbing.example>",
+    "subject": "Re: Security review for Fieldnote",
+    "body": "Hi Sam,\n\nThanks for reaching out. SOC 2 Type II report and our SSO and data retention summary are attached. Happy to get on a call with your team if that's faster.\n\nInes Carvalho\nSenior Account Executive, Fieldnote\n(415) 555-0119"
+  },
+  {
+    "id": "a-03-5",
+    "dealId": "d-03",
+    "kind": "call",
+    "at": "2026-10-02T18:30:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "body": "Short call with Sam Reyes. He is happy with the demo and is waiting on the IT security review to finish before he takes it to the owner. Nothing else changed on their side."
+  },
+  {
+    "id": "a-04-1",
+    "dealId": "d-04",
+    "kind": "meeting",
+    "at": "2026-08-27T16:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Onsite with Helen Cho and Victor Osei. 120 mechanics, union shop, strict callback SLAs. Helen wants to replace their current scheduling tool at contract end. Pricing: 120 seats at $600 per seat per year."
+  },
+  {
+    "id": "a-04-2",
+    "dealId": "d-04",
+    "kind": "email",
+    "at": "2026-09-10T14:00:00Z",
+    "from": "Helen Cho <hcho@northgate-elevator.example>",
+    "to": "Maya Lindgren <maya@fieldnote.example>",
+    "subject": "Re: Northgate proposal",
+    "body": "Maya,\n\nThanks for the revised proposal. We are aiming to have the agreement signed by November 30 so we can start the rollout before winter. Victor will send it to our legal team this week.\n\nHelen Cho\nVP of Field Operations, Northgate Elevator Service"
+  },
+  {
+    "id": "a-04-3",
+    "dealId": "d-04",
+    "kind": "email",
+    "at": "2026-09-15T10:30:00Z",
+    "from": "Victor Osei <vosei@northgate-elevator.example>",
+    "to": "Maya Lindgren <maya@fieldnote.example>",
+    "subject": "Fieldnote agreement",
+    "body": "Hi Maya,\n\nThe agreement is with legal now. I'll let you know when we have their redlines.\n\nVictor Osei\nProcurement Lead"
+  },
+  {
+    "id": "a-04-4",
+    "dealId": "d-04",
+    "kind": "call",
+    "at": "2026-09-30T17:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Call with Victor. Legal has a backlog from their own union contract renewal and will not get to our agreement until December. Victor now expects signature around January 15. Helen is still committed to the project, the timing is the only change."
+  },
+  {
+    "id": "a-05-1",
+    "dealId": "d-05",
+    "kind": "meeting",
+    "at": "2026-09-09T16:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "body": "Demo with Priya Nair. 25 techs, mostly residential repair calls, lots of same day jobs. Priya is the driver here, she found us and pitched it to the owner. She wants a two week pilot with five techs."
+  },
+  {
+    "id": "a-05-2",
+    "dealId": "d-05",
+    "kind": "email",
+    "at": "2026-09-21T15:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "to": "Priya Nair <priya@coastaldoors.example>",
+    "subject": "Coastal pilot plan",
+    "body": "Hi Priya,\n\nDraft pilot plan attached: five techs, two weeks, starting whenever you are ready. Pricing after the pilot is 25 seats at $600 per seat per year.\n\nTheo Brandt\nAccount Executive, Fieldnote\n(415) 555-0177"
+  },
+  {
+    "id": "a-05-3",
+    "dealId": "d-05",
+    "kind": "email",
+    "at": "2026-10-01T20:30:00Z",
+    "from": "Priya Nair <priya@coastaldoors.example>",
+    "to": "Theo Brandt <theo@fieldnote.example>",
+    "subject": "Handing things over",
+    "body": "Hi Theo,\n\nSome personal news I wanted you to hear directly. I've accepted a role at another company and my last day here is the 20th. I really believe in this project, so I've copied Marcus Bell, our General Manager (marcus.bell@coastaldoors.example), who will be taking it over from here. Marcus, Theo has been great to work with.\n\nThanks for everything,\nPriya\n\nPriya Nair\nOperations Director, Coastal Garage Doors"
+  },
+  {
+    "id": "a-05-4",
+    "dealId": "d-05",
+    "kind": "email",
+    "at": "2026-10-02T15:15:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "to": "Priya Nair <priya@coastaldoors.example>, Marcus Bell <marcus.bell@coastaldoors.example>",
+    "subject": "Re: Handing things over",
+    "body": "Priya, congratulations and thank you for the introduction.\n\nMarcus, great to meet you. Would you have 30 minutes next week so I can catch you up on the pilot plan?\n\nTheo Brandt\nAccount Executive, Fieldnote\n(415) 555-0177"
+  },
+  {
+    "id": "a-06-1",
+    "dealId": "d-06",
+    "kind": "call",
+    "at": "2026-09-03T17:30:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "body": "Discovery with Luis Ferreira. 55 crew members, jobs depend on weather, they lose a lot of time rescheduling after rain days. Wants to see the demo with his crew leads."
+  },
+  {
+    "id": "a-06-2",
+    "dealId": "d-06",
+    "kind": "email",
+    "at": "2026-09-24T14:10:00Z",
+    "from": "Luis Ferreira <lferreira@summitroofing.example>",
+    "to": "Ines Carvalho <ines@fieldnote.example>",
+    "subject": "Re: Crew lead demo",
+    "body": "Ines,\n\nOctober 8 at 10am works for the crew lead demo. I'll have four of them in the room.\n\nLuis Ferreira\nOperations Manager, Summit Roofing Group"
+  },
+  {
+    "id": "a-06-3",
+    "dealId": "d-06",
+    "kind": "email",
+    "at": "2026-10-02T13:00:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "to": "Luis Ferreira <lferreira@summitroofing.example>",
+    "subject": "Thursday demo",
+    "body": "Hi Luis,\n\nLooking forward to Thursday. I'll bring a sample week built from your rain day example. Anything else you'd like me to cover?\n\nInes Carvalho\nSenior Account Executive, Fieldnote\n(415) 555-0119"
+  },
+  {
+    "id": "a-06-4",
+    "dealId": "d-06",
+    "kind": "email",
+    "at": "2026-10-02T13:00:30Z",
+    "from": "Luis Ferreira <lferreira@summitroofing.example>",
+    "to": "Ines Carvalho <ines@fieldnote.example>",
+    "subject": "Automatic reply: Thursday demo",
+    "body": "Thank you for your email. I am out of the office until Monday, October 12 with limited access to email. For urgent scheduling matters please contact dispatch@summitroofing.example or call (555) 0134."
+  },
+  {
+    "id": "a-07-1",
+    "dealId": "d-07",
+    "kind": "call",
+    "at": "2026-09-02T16:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Erin Blake confirmed they want all 50 crew seats. Proposal at $600 per seat per year, $30,000. Erin needs Ken Moriarty to approve the budget."
+  },
+  {
+    "id": "a-07-2",
+    "dealId": "d-07",
+    "kind": "email",
+    "at": "2026-09-04T18:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "to": "Erin Blake <erin.blake@riverbendland.example>",
+    "subject": "Riverbend proposal",
+    "body": "Hi Erin,\n\nProposal for 50 crew seats, $30,000 per year, is attached.\n\nMaya Lindgren\nAccount Executive, Fieldnote\n(415) 555-0142"
+  },
+  {
+    "id": "a-07-3",
+    "dealId": "d-07",
+    "kind": "email",
+    "at": "2026-10-01T15:40:00Z",
+    "from": "Erin Blake <erin.blake@riverbendland.example>",
+    "to": "Maya Lindgren <maya@fieldnote.example>",
+    "subject": "Fwd: Scheduling software",
+    "body": "Hi Maya,\n\nForwarding the thread below so you have the full history. Ken signed off on the budget yesterday, so please send over the order form and we'll get it signed.\n\nErin\n\n---------- Forwarded message ---------\nFrom: Erin Blake <erin.blake@riverbendland.example>\nDate: Tue, Jul 14, 2026\nSubject: Scheduling software\nTo: Ken Moriarty <ken@riverbendland.example>\n\nKen,\n\nI looked at a few scheduling tools. We're probably only looking at 25 seats for now, and I don't expect a decision until next year. I'll keep you posted.\n\nErin"
+  },
+  {
+    "id": "a-07-4",
+    "dealId": "d-07",
+    "kind": "email",
+    "at": "2026-10-01T16:05:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "to": "Erin Blake <erin.blake@riverbendland.example>",
+    "subject": "Re: Fwd: Scheduling software",
+    "body": "Thanks Erin, that's great news. I'll get the order form over today.\n\nMaya Lindgren\nAccount Executive, Fieldnote\n(415) 555-0142"
+  },
+  {
+    "id": "a-08-1",
+    "dealId": "d-08",
+    "kind": "call",
+    "at": "2026-09-11T15:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "body": "Tasha Greene wants to start small, 25 seats on the starter plan at $540 per seat per year. Starter plan price is the same at any seat count up to 50."
+  },
+  {
+    "id": "a-08-2",
+    "dealId": "d-08",
+    "kind": "email",
+    "at": "2026-09-18T14:20:00Z",
+    "from": "Tasha Greene <tgreene@ironwoodfs.example>",
+    "to": "Theo Brandt <theo@fieldnote.example>",
+    "subject": "Seat question",
+    "body": "Hi Theo,\n\nQuick question while I put the budget together. If we went to 40 seats, what would that look like for the year? Just trying to see the range.\n\nTasha\n\nTasha Greene\nGeneral Manager, Ironwood Facilities Services"
+  },
+  {
+    "id": "a-08-3",
+    "dealId": "d-08",
+    "kind": "email",
+    "at": "2026-09-18T16:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "to": "Tasha Greene <tgreene@ironwoodfs.example>",
+    "subject": "Re: Seat question",
+    "body": "Hi Tasha,\n\n40 seats would be $21,600 per year. Same $540 per seat, the starter plan does not change price until 50 seats.\n\nTheo Brandt\nAccount Executive, Fieldnote\n(415) 555-0177"
+  },
+  {
+    "id": "a-08-4",
+    "dealId": "d-08",
+    "kind": "call",
+    "at": "2026-09-30T19:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "body": "Call with Tasha. She ran the numbers with her two supervisors. They are not ready for 40. Her words: \"let's do 32 seats to start and add more in the spring.\" She wants the updated order form this week."
+  },
+  {
+    "id": "a-09-1",
+    "dealId": "d-09",
+    "kind": "meeting",
+    "at": "2026-09-10T15:00:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "body": "Demo with Omar Haddad and three supervisors. 90 maintenance techs across 40 apartment properties. They want work orders from the property system to flow straight onto the board."
+  },
+  {
+    "id": "a-09-2",
+    "dealId": "d-09",
+    "kind": "email",
+    "at": "2026-09-17T17:00:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "to": "Omar Haddad <ohaddad@pinecrestpm.example>",
+    "subject": "Pinecrest proposal",
+    "body": "Hi Omar,\n\nProposal attached: 90 seats at $600 per seat per year, $54,000 annually.\n\nInes Carvalho\nSenior Account Executive, Fieldnote\n(415) 555-0119"
+  },
+  {
+    "id": "a-09-3",
+    "dealId": "d-09",
+    "kind": "email",
+    "at": "2026-09-30T18:25:00Z",
+    "from": "Omar Haddad <ohaddad@pinecrestpm.example>",
+    "to": "Ines Carvalho <ines@fieldnote.example>",
+    "subject": "Next steps",
+    "body": "Ines,\n\nWe reviewed the proposal and we're good to move forward on the 90 seats. Before procurement can issue a PO, our vendor management team needs you to complete the attached security questionnaire and send over a W-9 and your certificate of insurance. I've copied Beth Larsen, who runs vendor onboarding.\n\nOmar Haddad\nDirector of Maintenance, Pinecrest Property Maintenance"
+  },
+  {
+    "id": "a-09-4",
+    "dealId": "d-09",
+    "kind": "email",
+    "at": "2026-10-01T13:10:00Z",
+    "from": "Beth Larsen <blarsen@pinecrestpm.example>",
+    "to": "Ines Carvalho <ines@fieldnote.example>",
+    "subject": "Re: Next steps",
+    "body": "Hi Ines,\n\nNice to meet you. The questionnaire is 60 questions and most vendors finish in a few days. Send everything back to me and I'll route it to procurement.\n\nBeth Larsen\nVendor Management Specialist, Pinecrest Property Maintenance"
+  },
+  {
+    "id": "a-10-1",
+    "dealId": "d-10",
+    "kind": "call",
+    "at": "2026-09-04T16:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Nils Halvorsen is comparing us with one other option. 40 seats at $600 per seat per year. He cares most about pricing and whether we sync with their accounting system."
+  },
+  {
+    "id": "a-10-2",
+    "dealId": "d-10",
+    "kind": "email",
+    "at": "2026-09-19T15:30:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "to": "Nils Halvorsen <nils@halvorsenrepair.example>",
+    "subject": "Halvorsen pricing",
+    "body": "Hi Nils,\n\nAs discussed, I can do $600 per seat for 40 seats with free onboarding. Our accounting sync is on the roadmap for the first quarter.\n\nMaya Lindgren\nAccount Executive, Fieldnote\n(415) 555-0142"
+  },
+  {
+    "id": "a-10-3",
+    "dealId": "d-10",
+    "kind": "call",
+    "at": "2026-09-25T17:00:00Z",
+    "from": "Maya Lindgren <maya@fieldnote.example>",
+    "body": "Check-in with Nils. He has both proposals in front of him and expects to decide by the end of next week. Asked again about the accounting sync timeline."
+  },
+  {
+    "id": "a-10-4",
+    "dealId": "d-10",
+    "kind": "email",
+    "at": "2026-10-01T22:00:00Z",
+    "from": "Nils Halvorsen <nils@halvorsenrepair.example>",
+    "to": "Maya Lindgren <maya@fieldnote.example>",
+    "subject": "Our decision",
+    "body": "Maya,\n\nThank you for your patience these last few weeks. After a lot of back and forth, we've decided to go with another vendor. In the end it came down to their existing integration with our accounting system. I appreciate the time you put in and wish you the best.\n\nNils Halvorsen\nOwner, Halvorsen Appliance Repair"
+  },
+  {
+    "id": "a-11-1",
+    "dealId": "d-11",
+    "kind": "meeting",
+    "at": "2026-09-15T16:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "body": "Pilot kickoff with June Park. Two regions, 70 cleaners, four week pilot. Pilot review call is booked for October 14. Full rollout would be about 70 seats at $600 per seat per year."
+  },
+  {
+    "id": "a-11-2",
+    "dealId": "d-11",
+    "kind": "email",
+    "at": "2026-09-23T14:45:00Z",
+    "from": "June Park <june.park@mapletern.example>",
+    "to": "Theo Brandt <theo@fieldnote.example>",
+    "subject": "Pilot week one",
+    "body": "Hi Theo,\n\nWeek one of the pilot is going fine. A few cleaners needed help logging in, which we sorted out. See you on the 14th as planned.\n\nJune\n\nJune Park\nRegional Operations Lead, Maple & Tern Cleaning Co."
+  },
+  {
+    "id": "a-11-3",
+    "dealId": "d-11",
+    "kind": "email",
+    "at": "2026-09-30T15:00:00Z",
+    "from": "Theo Brandt <theo@fieldnote.example>",
+    "to": "June Park <june.park@mapletern.example>",
+    "subject": "Re: Pilot week one",
+    "body": "Hi June,\n\nGreat to hear. I've added a few report templates to your account so you can compare before and after on the review call.\n\nTheo Brandt\nAccount Executive, Fieldnote\n(415) 555-0177"
+  },
+  {
+    "id": "a-11-4",
+    "dealId": "d-11",
+    "kind": "email",
+    "at": "2026-10-02T12:30:00Z",
+    "from": "June Park <june.park@mapletern.example>",
+    "to": "Theo Brandt <theo@fieldnote.example>",
+    "subject": "Re: Pilot week one",
+    "body": "Thanks Theo, great, we'll take a look before the 14th.\n\nJune"
+  },
+  {
+    "id": "a-12-1",
+    "dealId": "d-12",
+    "kind": "call",
+    "at": "2026-09-16T16:00:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "body": "Jordan Pike agreed to 35 seats at $600 per seat per year. Order form goes to their CFO for approval."
+  },
+  {
+    "id": "a-12-2",
+    "dealId": "d-12",
+    "kind": "email",
+    "at": "2026-09-17T15:00:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "to": "Jordan Pike <jpike@ostrander-electric.example>",
+    "subject": "Ostrander order form",
+    "body": "Hi Jordan,\n\nOrder form for 35 seats, $21,000 per year, is attached.\n\nInes Carvalho\nSenior Account Executive, Fieldnote\n(415) 555-0119"
+  },
+  {
+    "id": "a-12-3",
+    "dealId": "d-12",
+    "kind": "email",
+    "at": "2026-09-24T18:10:00Z",
+    "from": "Jordan Pike <jpike@ostrander-electric.example>",
+    "to": "Ines Carvalho <ines@fieldnote.example>",
+    "subject": "Re: Ostrander order form",
+    "body": "Hi Ines,\n\nOur CFO is traveling this week, so the order form will sit until she is back. I'll nudge her as soon as she lands.\n\nJordan Pike\nOperations Manager, Ostrander Electric"
+  },
+  {
+    "id": "a-12-4",
+    "dealId": "d-12",
+    "kind": "call",
+    "at": "2026-10-05T15:30:00Z",
+    "from": "Ines Carvalho <ines@fieldnote.example>",
+    "body": "Jordan called. Their CFO approved the order form on Friday. Tomorrow is their quarterly safety day and nobody is at a desk, so Jordan will sign next Tuesday."
+  }
+]

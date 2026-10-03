@@ -1,0 +1,86 @@
+[
+  {
+    "id": "co-kettlebrook",
+    "name": "Kettlebrook Heating & Air",
+    "domain": "kettlebrook.example",
+    "industry": "HVAC",
+    "employees": 140
+  },
+  {
+    "id": "co-larkspur",
+    "name": "Larkspur Pest Control",
+    "domain": "larkspurpest.example",
+    "industry": "Pest control",
+    "employees": 210
+  },
+  {
+    "id": "co-brightline",
+    "name": "Brightline Plumbing",
+    "domain": "brightlineplumbing.example",
+    "industry": "Plumbing",
+    "employees": 95
+  },
+  {
+    "id": "co-northgate",
+    "name": "Northgate Elevator Service",
+    "domain": "northgate-elevator.example",
+    "industry": "Elevator maintenance",
+    "employees": 320
+  },
+  {
+    "id": "co-coastal",
+    "name": "Coastal Garage Doors",
+    "domain": "coastaldoors.example",
+    "industry": "Garage door repair",
+    "employees": 60
+  },
+  {
+    "id": "co-summit",
+    "name": "Summit Roofing Group",
+    "domain": "summitroofing.example",
+    "industry": "Roofing",
+    "employees": 180
+  },
+  {
+    "id": "co-riverbend",
+    "name": "Riverbend Landscaping",
+    "domain": "riverbendland.example",
+    "industry": "Landscaping",
+    "employees": 150
+  },
+  {
+    "id": "co-ironwood",
+    "name": "Ironwood Facilities Services",
+    "domain": "ironwoodfs.example",
+    "industry": "Facilities maintenance",
+    "employees": 75
+  },
+  {
+    "id": "co-pinecrest",
+    "name": "Pinecrest Property Maintenance",
+    "domain": "pinecrestpm.example",
+    "industry": "Property maintenance",
+    "employees": 260
+  },
+  {
+    "id": "co-halvorsen",
+    "name": "Halvorsen Appliance Repair",
+    "domain": "halvorsenrepair.example",
+    "industry": "Appliance repair",
+    "employees": 110
+  },
+  {
+    "id": "co-mapletern",
+    "name": "Maple & Tern Cleaning Co.",
+    "domain": "mapletern.example",
+    "industry": "Commercial cleaning",
+    "employees": 400
+  },
+  {
+    "id": "co-ostrander",
+    "name": "Ostrander Electric",
+    "domain": "ostrander-electric.example",
+    "industry": "Electrical contracting",
+    "employees": 130
+  }
+]

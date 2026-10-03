@@ -1,0 +1,174 @@
+[
+  {
+    "id": "d-01",
+    "companyId": "co-kettlebrook",
+    "name": "Kettlebrook: 60 technician seats",
+    "stage": "Proposal",
+    "amount": 36000,
+    "closeDate": "2026-10-30",
+    "nextStep": "Dana to review proposal with CFO",
+    "ownerName": "Maya Lindgren",
+    "contactIds": [
+      "ct-dana-whitfield",
+      "ct-glen-ashby"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-02",
+    "companyId": "co-larkspur",
+    "name": "Larkspur: renewal and expansion to 80 seats",
+    "stage": "Negotiation",
+    "amount": 48000,
+    "closeDate": "2026-10-31",
+    "nextStep": "Send renewal order form",
+    "ownerName": "Theo Brandt",
+    "contactIds": [
+      "ct-rosa-mendez",
+      "ct-ray-dunbar"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-03",
+    "companyId": "co-brightline",
+    "name": "Brightline: dispatch rollout",
+    "stage": "Demo",
+    "amount": 27000,
+    "closeDate": "2026-11-20",
+    "nextStep": "Follow up after demo",
+    "ownerName": "Ines Carvalho",
+    "contactIds": [
+      "ct-sam-reyes"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-04",
+    "companyId": "co-northgate",
+    "name": "Northgate: 120 seat enterprise plan",
+    "stage": "Proposal",
+    "amount": 72000,
+    "closeDate": "2026-10-31",
+    "nextStep": "Waiting on Northgate legal",
+    "ownerName": "Maya Lindgren",
+    "contactIds": [
+      "ct-helen-cho",
+      "ct-victor-osei"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-05",
+    "companyId": "co-coastal",
+    "name": "Coastal Garage Doors: 25 seats",
+    "stage": "Demo",
+    "amount": 15000,
+    "closeDate": "2026-11-13",
+    "nextStep": "Send pilot plan to Priya",
+    "ownerName": "Theo Brandt",
+    "contactIds": [
+      "ct-priya-nair"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-06",
+    "companyId": "co-summit",
+    "name": "Summit Roofing: crew scheduling",
+    "stage": "Demo",
+    "amount": 33000,
+    "closeDate": "2026-11-25",
+    "nextStep": "Demo for crew leads on Oct 8",
+    "ownerName": "Ines Carvalho",
+    "contactIds": [
+      "ct-luis-ferreira"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-07",
+    "companyId": "co-riverbend",
+    "name": "Riverbend: 50 crew seats",
+    "stage": "Proposal",
+    "amount": 30000,
+    "closeDate": "2026-10-30",
+    "nextStep": "Waiting on budget approval from Ken",
+    "ownerName": "Maya Lindgren",
+    "contactIds": [
+      "ct-erin-blake",
+      "ct-ken-moriarty"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-08",
+    "companyId": "co-ironwood",
+    "name": "Ironwood: starter plan",
+    "stage": "Proposal",
+    "amount": 13500,
+    "closeDate": "2026-10-23",
+    "nextStep": "Confirm seat count with Tasha",
+    "ownerName": "Theo Brandt",
+    "contactIds": [
+      "ct-tasha-greene"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-09",
+    "companyId": "co-pinecrest",
+    "name": "Pinecrest: maintenance team rollout",
+    "stage": "Proposal",
+    "amount": 54000,
+    "closeDate": "2026-11-06",
+    "nextStep": "Follow up on proposal",
+    "ownerName": "Ines Carvalho",
+    "contactIds": [
+      "ct-omar-haddad"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-10",
+    "companyId": "co-halvorsen",
+    "name": "Halvorsen: 40 seats",
+    "stage": "Negotiation",
+    "amount": 24000,
+    "closeDate": "2026-10-16",
+    "nextStep": "Final pricing call with Nils",
+    "ownerName": "Maya Lindgren",
+    "contactIds": [
+      "ct-nils-halvorsen"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-11",
+    "companyId": "co-mapletern",
+    "name": "Maple & Tern: regional pilot",
+    "stage": "Demo",
+    "amount": 42000,
+    "closeDate": "2026-11-30",
+    "nextStep": "Pilot review call on Oct 14",
+    "ownerName": "Theo Brandt",
+    "contactIds": [
+      "ct-june-park"
+    ],
+    "risks": []
+  },
+  {
+    "id": "d-12",
+    "companyId": "co-ostrander",
+    "name": "Ostrander: 35 electrician seats",
+    "stage": "Negotiation",
+    "amount": 21000,
+    "closeDate": "2026-10-30",
+    "nextStep": "CFO approval on order form",
+    "ownerName": "Ines Carvalho",
+    "contactIds": [
+      "ct-jordan-pike"
+    ],
+    "risks": []
+  }
+]

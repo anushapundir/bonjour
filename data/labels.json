@@ -1,0 +1,242 @@
+[
+  {
+    "dealId": "d-01",
+    "trap": "Delay buried in a P.S. at the end of a long friendly email",
+    "expected": [
+      {
+        "field": "closeDate",
+        "value": "2027-02-01"
+      },
+      {
+        "field": "risk",
+        "keywords": [
+          "budget",
+          "spend",
+          "hold",
+          "freeze",
+          "fiscal",
+          "delay",
+          "cfo"
+        ]
+      }
+    ]
+  },
+  {
+    "dealId": "d-02",
+    "trap": "Sarcasm about a price increase is a risk, not progress",
+    "expected": [
+      {
+        "field": "risk",
+        "keywords": [
+          "price",
+          "pricing",
+          "cost",
+          "increase",
+          "too much",
+          "overpay"
+        ]
+      }
+    ]
+  },
+  {
+    "dealId": "d-03",
+    "trap": "Two contacts named Sam; the IT Director is the new stakeholder",
+    "expected": [
+      {
+        "field": "addContact",
+        "value": "ct-sam-kowalski"
+      },
+      {
+        "field": "nextStep",
+        "keywords": [
+          "security",
+          "soc 2",
+          "it review",
+          "sso"
+        ]
+      },
+      {
+        "field": "risk",
+        "keywords": [
+          "security",
+          "it review",
+          "soc 2"
+        ],
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-04",
+    "trap": "Older email says Nov 30, newer call note says Jan 15; recency wins",
+    "expected": [
+      {
+        "field": "closeDate",
+        "value": "2027-01-15"
+      },
+      {
+        "field": "risk",
+        "keywords": [
+          "legal",
+          "backlog",
+          "delay"
+        ],
+        "optional": true
+      },
+      {
+        "field": "nextStep",
+        "keywords": [
+          "legal"
+        ],
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-05",
+    "trap": "Champion's last day is the 20th; new owner introduced",
+    "expected": [
+      {
+        "field": "contactLeft",
+        "value": "ct-priya-nair"
+      },
+      {
+        "field": "addContact",
+        "value": "Marcus Bell"
+      },
+      {
+        "field": "risk",
+        "keywords": [
+          "champion",
+          "leaving",
+          "priya",
+          "handoff",
+          "hand off",
+          "transition",
+          "departure",
+          "last day"
+        ]
+      },
+      {
+        "field": "nextStep",
+        "keywords": [
+          "marcus"
+        ],
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-06",
+    "trap": "Out of office auto reply carries no deal information",
+    "expected": []
+  },
+  {
+    "dealId": "d-07",
+    "trap": "Forwarded thread quotes an old message; only the new text is news",
+    "expected": [
+      {
+        "field": "nextStep",
+        "keywords": [
+          "order form",
+          "contract",
+          "sign"
+        ]
+      },
+      {
+        "field": "stage",
+        "value": "Negotiation",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-08",
+    "trap": "Hypothetical 40 seats vs confirmed 32 seats at $540",
+    "expected": [
+      {
+        "field": "amount",
+        "value": "17280"
+      },
+      {
+        "field": "nextStep",
+        "keywords": [
+          "order form"
+        ],
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-09",
+    "trap": "Security questionnaire and procurement step",
+    "expected": [
+      {
+        "field": "stage",
+        "value": "Negotiation"
+      },
+      {
+        "field": "nextStep",
+        "keywords": [
+          "questionnaire",
+          "security",
+          "procurement",
+          "w-9",
+          "insurance",
+          "po"
+        ]
+      },
+      {
+        "field": "addContact",
+        "value": "Beth Larsen",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-10",
+    "trap": "Customer chose another vendor",
+    "expected": [
+      {
+        "field": "stage",
+        "value": "Closed Lost"
+      },
+      {
+        "field": "risk",
+        "keywords": [
+          "vendor",
+          "accounting",
+          "integration",
+          "lost"
+        ],
+        "optional": true
+      },
+      {
+        "field": "nextStep",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "dealId": "d-11",
+    "trap": "Nothing new; any change is spurious",
+    "expected": []
+  },
+  {
+    "dealId": "d-12",
+    "trap": "\"Next Tuesday\" said on Monday 2026-10-05",
+    "expected": [
+      {
+        "field": "closeDate",
+        "value": "2026-10-13"
+      },
+      {
+        "field": "nextStep",
+        "keywords": [
+          "sign"
+        ],
+        "optional": true
+      }
+    ]
+  }
+]
