@@ -46,7 +46,11 @@ export function ChangeCard({ change, contacts, source, verdict, status, active, 
           </p>
         )}
         <p className={`flex gap-2 ${unsupported ? "text-muted" : "text-ink"}`}>
-          <span className={`w-3 shrink-0 select-none text-center ${unsupported ? "" : "text-accent"}`} aria-label="After">+</span>
+          {change.field === "contactLeft" ? (
+            <span className={`w-3 shrink-0 select-none text-center ${unsupported ? "" : "text-bad"}`} aria-label="Leaving">−</span>
+          ) : (
+            <span className={`w-3 shrink-0 select-none text-center ${unsupported ? "" : "text-accent"}`} aria-label="After">+</span>
+          )}
           <span className={`min-w-0 break-words font-medium ${unsupported ? "line-through decoration-bad" : ""}`}>{after}</span>
         </p>
       </div>
