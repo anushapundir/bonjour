@@ -17,7 +17,9 @@ export async function signIn(_prev: string | null, form: FormData): Promise<stri
     path: "/",
     maxAge: 60 * 60 * 24 * 7,
   });
-  redirect("/app");
+  // Only follow in-app paths, never an outside URL.
+  const next = String(form.get("next") ?? "");
+  redirect(/^\/app(\/[\w\-/]*)?$/.test(next) ? next : "/app");
 }
 
 export async function signOut() {

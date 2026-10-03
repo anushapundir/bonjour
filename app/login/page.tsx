@@ -5,7 +5,8 @@ import { LoginForm } from "./LoginForm";
 
 export const metadata = { title: "Sign in" };
 
-export default function LoginPage() {
+export default async function LoginPage(props: PageProps<"/login">) {
+  const { next } = await props.searchParams;
   return (
     <div className="flex min-h-dvh flex-col">
       <header className="flex h-16 items-center justify-between px-4 sm:px-6">
@@ -20,7 +21,7 @@ export default function LoginPage() {
           <p className="mt-2 text-sm leading-relaxed text-muted">
             A shared demo workspace with sample deals. Your approvals stay in this browser.
           </p>
-          <LoginForm />
+          <LoginForm next={typeof next === "string" ? next : ""} />
         </div>
       </main>
     </div>

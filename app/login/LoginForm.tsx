@@ -8,7 +8,7 @@ import { signIn } from "./actions";
 const input =
   "h-9 w-full rounded-md border border-line-strong bg-surface px-3 text-sm text-ink placeholder:text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-mark";
 
-export function LoginForm() {
+export function LoginForm({ next }: { next: string }) {
   const [error, action, pending] = useActionState(signIn, null);
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
@@ -34,6 +34,7 @@ export function LoginForm() {
       </div>
 
       <form action={action} className="mt-6 space-y-4">
+        <input type="hidden" name="next" value={next} />
         <div className="grid gap-1.5">
           <label htmlFor="email" className="text-[13px] font-medium text-ink">
             Email

@@ -28,7 +28,7 @@ You stay in charge. Click the quote chip and the exact span lights up inside the
 flowchart LR
   A[Emails, calls, notes] --> B[Agent reads the deal]
   B --> C[Proposed changes with a reason and a quote]
-  C --> D{Citation check: is the quote really in that activity?}
+  C --> D{"Citation check: is the quote really in that activity?"}
   D -- yes --> E[You approve or reject]
   D -- no --> F[Blocked: no source found]
   E --> G[Record updated]
