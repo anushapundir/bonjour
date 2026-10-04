@@ -17,7 +17,7 @@ export function ContactsTable() {
   return (
     <div>
       <PageHeader title="Contacts" sub={`${rows.length} people, ${rows.filter((r) => r.left).length} marked as left`} />
-      <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-panel">
+      <div className="overflow-x-auto rounded-[12px] border border-line bg-surface shadow-panel">
         <table className="w-full min-w-[720px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-line font-mono text-[11px] text-muted">
@@ -30,12 +30,12 @@ export function ContactsTable() {
           </thead>
           <tbody className="divide-y divide-line">
             {rows.map((r) => (
-              <tr key={r.id} id={r.id} className="scroll-mt-24 target:bg-accent-soft hover:bg-surface-2/60">
+              <tr key={r.id} id={r.id} className="scroll-mt-24 target:bg-mark-soft hover:bg-canvas">
                 <td className="px-3 py-2.5">
                   <span className="flex items-center gap-2.5">
-                    <span className="grid size-7 shrink-0 place-items-center rounded-full border border-line bg-surface-2 font-serif text-[12px] text-ink-2">{initials(r.name)}</span>
+                    <span className="grid size-7 shrink-0 place-items-center rounded-full border border-line bg-surface-2 text-[11px] font-medium text-ink-2">{initials(r.name)}</span>
                     <span>
-                      <span className={`block font-medium ${r.left ? "text-muted line-through decoration-line-strong" : "text-ink"}`}>{r.name}</span>
+                      <span className={`block font-medium ${r.left ? "text-muted line-through decoration-faint" : "text-ink"}`}>{r.name}</span>
                       <span className="block text-xs text-muted">{r.title}</span>
                     </span>
                   </span>
@@ -44,14 +44,14 @@ export function ContactsTable() {
                 <td className="px-3 py-2.5 font-mono text-[12px] text-ink-2">{r.email}</td>
                 <td className="px-3 py-2.5">
                   {r.left ? (
-                    <span className="rounded-full bg-bad-soft px-2 py-0.5 font-mono text-[11px] font-medium text-bad">Left</span>
+                    <span className="rounded-[4px] bg-bad-soft px-1.5 py-0.5 font-mono text-[11px] font-medium text-bad">Left</span>
                   ) : (
                     <span className="font-mono text-[11px] text-muted">Active</span>
                   )}
                 </td>
                 <td className="px-3 py-2.5">
                   {r.deals.map((d) => (
-                    <Link key={d.id} href={`/app/deals/${d.id}`} className="block text-ink-2 hover:text-accent-text hover:underline">
+                    <Link key={d.id} href={`/app/deals/${d.id}`} className="block text-ink-2 hover:text-ink hover:underline">
                       {dealTitle(d.name)}
                     </Link>
                   ))}

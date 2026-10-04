@@ -10,7 +10,7 @@ export default function CompaniesPage() {
   return (
     <div>
       <PageHeader title="Companies" sub={`${companies.length} accounts, all field service businesses`} />
-      <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-panel">
+      <div className="overflow-x-auto rounded-[12px] border border-line bg-surface shadow-panel">
         <table className="w-full min-w-[720px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-line font-mono text-[11px] text-muted">
@@ -26,7 +26,7 @@ export default function CompaniesPage() {
             {companies.map((c) => {
               const own = deals.filter((d) => d.companyId === c.id);
               return (
-                <tr key={c.id} className="hover:bg-surface-2/60">
+                <tr key={c.id} className="hover:bg-canvas">
                   <td className="px-3 py-2.5">
                     <span className="flex items-center gap-2.5">
                       <Monogram name={c.name} />
@@ -41,7 +41,7 @@ export default function CompaniesPage() {
                   <td className="px-3 py-2.5 text-right font-mono text-[12.5px] text-ink-2">{contacts.filter((x) => x.companyId === c.id).length}</td>
                   <td className="px-3 py-2.5">
                     {own.map((d) => (
-                      <Link key={d.id} href={`/app/deals/${d.id}`} className="block text-ink-2 hover:text-accent-text hover:underline">
+                      <Link key={d.id} href={`/app/deals/${d.id}`} className="block text-ink-2 hover:text-ink hover:underline">
                         {dealTitle(d.name)}
                       </Link>
                     ))}

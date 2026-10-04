@@ -51,10 +51,10 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
   // `k` changes with the value, so an updated field remounts and plays its highlight once.
   const field = (f: Field, value: React.ReactNode, k: string, label = FIELD_LABEL[f]) => (
     <div className="grid grid-cols-[96px_minmax(0,1fr)] items-baseline gap-3 py-2">
-      <dt className="font-mono text-[11px] text-muted">{label}</dt>
+      <dt className="text-[12px] text-muted">{label}</dt>
       <dd
         key={`${updated.has(f)}:${k}`}
-        className={`-mx-1.5 rounded-md px-1.5 py-0.5 text-[13.5px] text-ink ${updated.has(f) ? "flash" : ""}`}
+        className={`-mx-1.5 rounded-[4px] px-1.5 py-0.5 text-[13px] text-ink ${updated.has(f) ? "flash" : ""}`}
       >
         {value}
       </dd>
@@ -70,23 +70,23 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
 
   return (
     <div>
-      <nav className="mb-3 font-mono text-[11px] text-muted">
+      <nav className="mb-3 text-[12px] text-muted">
         <Link href="/app/deals" className="hover:text-ink">
           Deals
         </Link>
         <span className="mx-1.5">/</span>
         <span>{company.name}</span>
       </nav>
-      <div className="mb-7 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <Monogram name={company.name} className="size-10 text-[15px]" />
-        <h1 className="font-serif text-[28px] font-normal leading-tight tracking-[-0.02em] text-ink sm:text-[32px]">{base.name}</h1>
+      <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <Monogram name={company.name} className="size-8 text-[12px]" />
+        <h1 className="text-[22px] font-medium leading-tight tracking-[-0.025em] text-ink sm:text-[24px]">{base.name}</h1>
         <StageBadge stage={deal.stage} />
       </div>
 
-      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[260px_minmax(0,1fr)_minmax(340px,400px)]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-5 xl:grid-cols-[260px_minmax(0,1fr)_minmax(340px,400px)]">
         {/* Record */}
-        <section aria-labelledby="record" className="xl:sticky xl:top-20 xl:self-start">
-          <h2 id="record" className="mb-1 font-serif text-lg text-ink">
+        <section aria-labelledby="record" className="rounded-[12px] border border-line bg-surface px-4 py-3 shadow-panel xl:sticky xl:top-[4.5rem] xl:self-start">
+          <h2 id="record" className="mb-1 text-[13px] font-medium text-ink">
             Record
           </h2>
           <dl className="divide-y divide-line">
@@ -95,17 +95,17 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
             {field("closeDate", <span className="font-mono text-[13px]">{day(deal.closeDate)}</span>, deal.closeDate)}
             {field("nextStep", deal.nextStep, deal.nextStep)}
             <div className="grid grid-cols-[96px_minmax(0,1fr)] items-baseline gap-3 py-2">
-              <dt className="font-mono text-[11px] text-muted">Owner</dt>
-              <dd className="text-[13.5px] text-ink">{deal.ownerName}</dd>
+              <dt className="text-[12px] text-muted">Owner</dt>
+              <dd className="text-[13px] text-ink">{deal.ownerName}</dd>
             </div>
             {field(
               updated.has("addContact") ? "addContact" : "contactLeft",
               <ul className="space-y-1.5">
                 {people.map((p) => (
                   <li key={p.id} className="leading-snug">
-                    <span className={p.left ? "text-muted line-through decoration-line-strong" : ""}>{p.name}</span>
-                    {p.left && <span className="ml-1.5 rounded-full bg-bad-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-bad">Left</span>}
-                    {p.added && !p.left && <span className="ml-1.5 rounded-full bg-accent-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-accent-text">New</span>}
+                    <span className={p.left ? "text-muted line-through decoration-faint" : ""}>{p.name}</span>
+                    {p.left && <span className="ml-1.5 rounded-[4px] bg-bad-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-bad">Left</span>}
+                    {p.added && !p.left && <span className="ml-1.5 rounded-[4px] bg-good-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-good">New</span>}
                     <span className="block text-xs text-muted">{p.title}</span>
                   </li>
                 ))}
@@ -137,7 +137,7 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
         </section>
 
         {/* Proposals: second on small screens, right column on wide ones */}
-        <section aria-labelledby="proposals" className="xl:order-last xl:sticky xl:top-20 xl:max-h-[calc(100dvh-6rem)] xl:self-start xl:overflow-y-auto xl:pb-4">
+        <section aria-labelledby="proposals" className="xl:order-last xl:sticky xl:top-[4.5rem] xl:max-h-[calc(100dvh-5.5rem)] xl:self-start xl:overflow-y-auto xl:pb-4">
           <Proposals
             deal={base}
             contacts={contacts}
@@ -154,14 +154,14 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
 
         {/* Timeline */}
         <section aria-labelledby="timeline" className="min-w-0">
-          <h2 id="timeline" className="mb-3 font-serif text-lg text-ink">
+          <h2 id="timeline" className="mb-2.5 text-[13px] font-medium text-ink">
             Activity <span className="font-mono text-xs text-muted">{activities.length}</span>
           </h2>
-          <ol className="space-y-3">
+          <ol className="space-y-2.5">
             {activities.map((a) => {
               const mine = active?.activityId === a.id;
               return (
-                <li key={a.id} className={`rounded-[14px] transition-shadow ${mine ? "ring-2 ring-accent/50 ring-offset-2 ring-offset-bg" : ""}`}>
+                <li key={a.id} className={`rounded-[10px] transition-shadow ${mine ? "ring-2 ring-ink ring-offset-2 ring-offset-canvas" : ""}`}>
                   <ActivityItem activity={a} highlight={mine ? findQuote(a.body, active.quote) : null} />
                 </li>
               );
@@ -220,18 +220,18 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
   const committed = !isMine || mine.source === "committed";
 
   return (
-    <div className="rounded-[20px] border border-line bg-surface-2/60 p-3 shadow-[inset_0_1px_0_rgb(255_255_255/0.4)]">
+    <div className="rounded-[12px] border border-line bg-surface p-3 shadow-panel">
       <div className="flex items-center justify-between gap-2 px-1 pb-3">
-        <h2 id="proposals" className="font-serif text-lg text-ink">
+        <h2 id="proposals" className="text-[13px] font-medium text-ink">
           Proposed changes
         </h2>
         <button onClick={runLive} disabled={running} className={btn.secondary}>
-          {running ? <ArrowClockwise size={14} className="animate-spin" /> : <Lightning size={14} weight="fill" className="text-accent" />}
+          {running ? <ArrowClockwise size={14} className="animate-spin" /> : <Lightning size={14} weight="fill" className="text-[#d97706]" />}
           {running ? "Reading activity" : "Run Bonjour"}
         </button>
       </div>
 
-      <div role="tablist" aria-label="Compare recommenders" className="mb-3 grid grid-cols-3 gap-0.5 rounded-full border border-line bg-surface-2 p-0.5 shadow-[inset_0_1px_2px_rgb(70_45_20/0.08)]">
+      <div role="tablist" aria-label="Compare recommenders" className="mb-3 grid grid-cols-3 gap-0.5 rounded-[8px] bg-surface-2 p-0.5">
         {TABS.map((t) => (
           <button
             key={t.id}
@@ -241,7 +241,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
               setTab(t.id);
               onTab();
             }}
-            className={`h-7 rounded-full text-xs font-medium transition-[background-color,box-shadow,color] ${tab === t.id ? "bg-surface text-ink shadow-[0_0_0_1px_var(--line),0_1px_2px_rgb(70_45_20/0.12)]" : "text-muted hover:text-ink"}`}
+            className={`h-7 rounded-[6px] text-xs font-medium transition-[background-color,box-shadow,color] ${tab === t.id ? "bg-surface text-ink shadow-[0_0_0_1px_var(--line),0_1px_2px_rgb(0_0_0/0.06)]" : "text-muted hover:text-ink"}`}
           >
             {t.label}
           </button>
@@ -256,14 +256,14 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
             : ""}
         {!isMine && "Read only, graded against the hand-written answer key."}
         {isMine && mine.source === "live" && (
-          <button onClick={() => demo.setLive(deal.id, null)} className="font-medium text-accent-text underline-offset-2 hover:underline">
+          <button onClick={() => demo.setLive(deal.id, null)} className="font-medium text-ink underline underline-offset-2">
             Show committed run
           </button>
         )}
       </p>
 
       {error && (
-        <div className="mb-3 rounded-[14px] border border-line bg-surface p-3 text-[12.5px] leading-relaxed text-ink-2" role="alert">
+        <div className="mb-3 rounded-[10px] border border-line bg-canvas p-3 text-[12.5px] leading-relaxed text-ink-2" role="alert">
           {error.message}
           {error.needsToken && (
             <form
@@ -282,7 +282,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
                 value={token}
                 onChange={(e) => setToken(e.target.value)}
                 placeholder="Access token"
-                className="h-8 min-w-0 flex-1 rounded-full border border-line-strong bg-surface px-3 font-mono text-[12.5px] text-ink placeholder:text-muted"
+                className="h-8 min-w-0 flex-1 rounded-[8px] border border-line-strong bg-surface px-3 font-mono text-[12.5px] text-ink placeholder:text-muted"
               />
               <button className={btn.secondary}>Retry</button>
             </form>
@@ -304,7 +304,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
 
       <div className="space-y-2">
         {changes.length === 0 && (view.ran || isMine) && (
-          <div className="rounded-[14px] border border-dashed border-line-strong px-4 py-6 text-center text-[13px] text-muted">
+          <div className="rounded-[10px] border border-dashed border-line-strong px-4 py-6 text-center text-[13px] text-muted">
             No changes proposed. Nothing in the activity changes this record.
           </div>
         )}
@@ -345,7 +345,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
       </div>
 
       {committed && view.ran && view.missed > 0 && (
-        <p className="mt-3 rounded-[12px] bg-bad-soft px-3 py-2 text-[12.5px] text-bad">
+        <p className="mt-3 rounded-[8px] bg-bad-soft px-3 py-2 text-[12.5px] text-bad">
           Missed {view.missed} expected {view.missed === 1 ? "change" : "changes"} on this deal.
         </p>
       )}

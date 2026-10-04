@@ -60,11 +60,11 @@ export function DealsTable() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Filter by deal, company, stage"
-            className="h-8 w-full rounded-full border border-line bg-surface pl-8 pr-3 text-[13px] text-ink shadow-[inset_0_1px_2px_rgb(70_45_20/0.05)] placeholder:text-muted focus:border-line-strong focus:outline-none"
+            className="h-8 w-full rounded-[8px] border border-line bg-surface pl-8 pr-3 text-[13px] text-ink placeholder:text-muted focus:border-line-strong focus:outline-none"
           />
         </div>
       </PageHeader>
-      <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-panel">
+      <div className="overflow-x-auto rounded-[12px] border border-line bg-surface shadow-panel">
         <table className="w-full min-w-[760px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-line">
@@ -86,7 +86,7 @@ export function DealsTable() {
           </thead>
           <tbody className="divide-y divide-line">
             {shown.map((r) => (
-              <tr key={r.id} className="group hover:bg-surface-2/60">
+              <tr key={r.id} className="group hover:bg-canvas">
                 <td className="px-3 py-2.5">
                   <Link href={`/app/deals/${r.id}`} className="font-medium text-ink group-hover:underline">
                     {r.name}
@@ -106,7 +106,7 @@ export function DealsTable() {
                 <td className="px-3 py-2.5 text-ink-2">{r.owner}</td>
                 <td className="px-3 py-2.5 text-right tabular-nums">
                   {r.pending > 0 ? (
-                    <span className="rounded-full bg-accent-soft px-2 py-0.5 font-mono text-[11.5px] font-medium text-accent-text">{r.pending}</span>
+                    <span className="rounded-[4px] bg-mark-soft px-1.5 py-0.5 font-mono text-[11.5px] font-medium text-ink ring-1 ring-inset ring-[color-mix(in_srgb,var(--mark)_70%,transparent)]">{r.pending}</span>
                   ) : (
                     <span className="font-mono text-[12px] text-muted">0</span>
                   )}

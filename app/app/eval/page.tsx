@@ -34,8 +34,8 @@ export default function EvalPage() {
 
       <EvalTable board={board} />
 
-      <div className="mt-5 rounded-2xl border border-line bg-surface-2/60 p-5 text-[13.5px] leading-relaxed text-ink-2">
-        <p className="font-serif text-lg italic text-ink">Read this before trusting the numbers</p>
+      <div className="mt-5 rounded-[12px] border border-line bg-surface p-5 text-[13.5px] leading-relaxed text-ink-2">
+        <p className="text-[14px] font-medium text-ink">Read this before trusting the numbers</p>
         <p className="mt-1">{CAVEAT}</p>
         <p className="mt-2 text-muted">
           Every deal hides one trap a careless reader falls for. A change counts as correct only if it matches the answer key, and a citation counts as supported only if the quote
@@ -43,9 +43,9 @@ export default function EvalPage() {
         </p>
       </div>
 
-      <h2 className="mb-4 mt-12 font-serif text-2xl tracking-[-0.015em] text-ink">Deal by deal</h2>
-      <div className="divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface shadow-panel">
-        <div className="hidden px-4 py-2.5 font-mono text-[11px] text-muted sm:grid sm:grid-cols-[minmax(0,1fr)_repeat(3,96px)]">
+      <h2 className="mb-3 mt-10 text-[15px] font-medium tracking-[-0.01em] text-ink">Deal by deal</h2>
+      <div className="divide-y divide-line overflow-hidden rounded-[12px] border border-line bg-surface shadow-panel">
+        <div className="hidden px-4 py-2.5 text-[12px] text-muted sm:grid sm:grid-cols-[minmax(0,1fr)_repeat(3,96px)]">
           <span className="pl-5">Deal and its trap</span>
           {RECOMMENDERS.map((id) => (
             <span key={id} className="text-right">
@@ -58,7 +58,7 @@ export default function EvalPage() {
           const own = contacts.filter((c) => c.companyId === deal.companyId);
           return (
             <details key={deal.id} className="group">
-              <summary className="grid cursor-pointer list-none gap-2 px-4 py-3 hover:bg-surface-2/60 sm:grid-cols-[minmax(0,1fr)_repeat(3,96px)] sm:items-center [&::-webkit-details-marker]:hidden">
+              <summary className="grid cursor-pointer list-none gap-2 px-4 py-3 hover:bg-canvas sm:grid-cols-[minmax(0,1fr)_repeat(3,96px)] sm:items-center [&::-webkit-details-marker]:hidden">
                 <span className="flex min-w-0 items-start gap-2">
                   <CaretRight size={13} className="mt-1 shrink-0 text-muted transition-transform group-open:rotate-90" />
                   <span className="min-w-0">
@@ -87,14 +87,14 @@ export default function EvalPage() {
                   );
                 })}
               </summary>
-              <div className="grid gap-4 border-t border-line bg-bg/60 p-4 lg:grid-cols-3">
+              <div className="grid gap-4 border-t border-line bg-canvas p-4 lg:grid-cols-3">
                 {RECOMMENDERS.map((id) => {
                   const run = board.recommenders[id];
                   const s = run?.status === "ran" ? run.perDeal.find((p) => p.dealId === deal.id) : undefined;
                   const changes = runs[deal.id]?.[id] ?? [];
                   return (
                     <div key={id} className="min-w-0">
-                      <h3 className="mb-2 font-serif text-[15px] text-ink">{REC_LABEL[id]}</h3>
+                      <h3 className="mb-2 text-[13px] font-medium text-ink">{REC_LABEL[id]}</h3>
                       {!s ? (
                         <p className="text-xs text-muted">not run yet</p>
                       ) : (
@@ -104,7 +104,7 @@ export default function EvalPage() {
                             <ChangeCard key={i} change={c} contacts={own} verdict={s.verdicts[i]} />
                           ))}
                           {s.missed > 0 && (
-                            <p className="rounded-[12px] bg-bad-soft px-3 py-2 text-xs text-bad">
+                            <p className="rounded-[8px] bg-bad-soft px-3 py-2 text-xs text-bad">
                               Missed {s.missed} expected {s.missed === 1 ? "change" : "changes"}.
                             </p>
                           )}

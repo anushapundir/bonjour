@@ -74,11 +74,11 @@ export function Search() {
         role="combobox"
         aria-expanded={open && hits.length > 0}
         aria-controls="search-results"
-        className="h-8 w-full rounded-full border border-line bg-surface/70 pl-8 pr-10 text-[13px] text-ink shadow-[inset_0_1px_2px_rgb(70_45_20/0.05)] placeholder:text-muted focus:border-line-strong focus:outline-none"
+        className="h-8 w-full rounded-[8px] border border-line bg-canvas pl-8 pr-12 text-[13px] text-ink placeholder:text-muted focus:border-line-strong focus:bg-surface focus:outline-none"
       />
-      <kbd className="pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-line px-1 font-mono text-[10.5px] text-muted sm:block">/</kbd>
+      <kbd className="pointer-events-none absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-[4px] border border-line bg-surface px-1.5 font-mono text-[10.5px] text-muted sm:block">⌘K</kbd>
       {open && q.trim() && (
-        <ul id="search-results" role="listbox" className="absolute left-0 right-0 top-10 z-50 overflow-hidden rounded-xl border border-line bg-surface p-1 shadow-float">
+        <ul id="search-results" role="listbox" className="absolute left-0 right-0 top-10 z-50 overflow-hidden rounded-[10px] border border-line bg-surface p-1 shadow-float">
           {hits.length === 0 && <li className="px-2.5 py-2 text-[13px] text-muted">No deals or contacts match &ldquo;{q}&rdquo;.</li>}
           {hits.map((h, i) => (
             <li key={h.href} role="option" aria-selected={i === active}>
@@ -86,7 +86,7 @@ export function Search() {
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => go(h)}
                 onMouseEnter={() => setActive(i)}
-                className={`flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left ${i === active ? "bg-surface-2" : ""}`}
+                className={`flex w-full items-center gap-3 rounded-[6px] px-2.5 py-2 text-left ${i === active ? "bg-surface-2" : ""}`}
               >
                 <span className="w-14 shrink-0 font-mono text-[10.5px] text-muted">{h.kind}</span>
                 <span className="min-w-0 truncate text-[13px] text-ink">{h.title}</span>
