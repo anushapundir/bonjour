@@ -1,6 +1,6 @@
 # Bonjour
 
-A CRM that reads your deal emails and calls, proposes record updates, and shows the line every change came from.
+Your CRM, updated from your inbox. Bonjour reads every email, call note and meeting on a deal, drafts the updates, and quotes the sentence behind each one. Nothing is saved until you approve it.
 
 ![Bonjour landing page](docs/landing.png)
 
@@ -74,17 +74,17 @@ npm run mcp     # start the MCP server on stdio
 
 Twelve hand-written deals, each hiding one trap (a delay buried in a P.S., a champion leaving, a hypothetical seat count next to the confirmed one, sarcasm, two people named Sam, and so on). Two of them should not change at all. Each recommender's proposals are scored against an answer key in `data/labels.json`. Model: `claude-haiku-4-5-20251001`, run on 2026-10-04.
 
-| | Keyword rules | Naive LLM | Bonjour |
+| | Keyword rules | Plain prompt | Bonjour |
 |---|---:|---:|---:|
 | Correct | 3 of 15 | 10 of 15 | 14 of 15 |
 | Wrong value | 1 | 3 | 0 |
 | Missed | 11 | 2 | 1 |
-| Spurious (changes nobody should make) | 4 | 7 | 0 |
-| Unsupported citations | 0 of 9 | 1 of 25 | 0 of 18 |
-| Risk recall | 0% | 33% | 100% |
+| Unneeded edits (changes nobody should make) | 4 | 7 | 0 |
+| Made-up quotes | 0 of 9 | 1 of 25 | 0 of 18 |
+| Risks caught | 0% | 33% | 100% |
 | No-change deals left untouched | 1 of 2 | 0 of 2 | 2 of 2 |
 
-The naive LLM gets the same model and the same output shape, with a one-line prompt, the activities in a scrambled order, and no request to cite anything.
+The plain prompt gets the same model and the same output shape, with a one-line prompt, the activities in a scrambled order, and no request to cite anything.
 
 Please read these numbers with the caveats:
 

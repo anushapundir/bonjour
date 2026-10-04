@@ -66,7 +66,15 @@ export default function Landing() {
     { dealId: "d-12", activityId: "a-12-4", quote: "Jordan will sign next Tuesday.", bg: "#450a0a" },
   ]
     .map((t) => ({ ...t, quote: exact(t.activityId, t.quote), trap: labels.find((l) => l.dealId === t.dealId)?.trap ?? "" }))
-    .filter((t) => t.quote);
+    .filter((t) => t.quote)
+    // Only lines where the plain prompt did worse than Bonjour, so the headline above stays true.
+    .filter((t) => {
+      const p = score("naive", t.dealId);
+      const b = score("bonjour", t.dealId);
+      if (!p || !b) return false;
+      const misses = (x: DealScore) => x.missed + x.wrongValue + x.spurious + x.unsupported;
+      return misses(p) > misses(b);
+    });
 
   const proposal = deals.filter((d) => d.stage === "Proposal");
   const seats = activities.find((a) => a.id === "a-08-4");
@@ -89,19 +97,16 @@ export default function Landing() {
               How it works
             </a>
             <a href="#eval" className="transition-colors hover:text-ink">
-              Eval
+              Accuracy
             </a>
             <a href={GITHUB} className="transition-colors hover:text-ink">
-              Source code
+              GitHub
             </a>
           </nav>
           <div className="ml-auto flex items-center gap-1.5 justify-self-end sm:gap-3">
             <ThemeToggle />
-            <Link href="/login" className="hidden px-1 text-[13.5px] text-ink-2 transition-colors hover:text-ink sm:block">
-              Sign in
-            </Link>
             <Link href="/login" className={btn.primary}>
-              Try the demo
+              Open the demo
             </Link>
           </div>
         </div>
@@ -110,24 +115,28 @@ export default function Landing() {
       <main>
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 sm:pt-20">
-          <div className="rise flex gap-1.5" aria-hidden="true">
-            {[HUES.violet, HUES.green, HUES.blue, HUES.orange].map((c) => (
-              <Square key={c} color={c} className="size-3.5" />
-            ))}
-          </div>
-          <h1 className="rise mt-5 max-w-[640px] text-[36px] font-medium leading-[1.08] tracking-[-0.035em] text-ink sm:text-[56px]" style={v({ "--i": 1 })}>
-            Every CRM update, with the line it came from.
-          </h1>
-          <p className="rise mt-4 max-w-[52ch] text-[16px] leading-relaxed text-muted sm:text-[17px]" style={v({ "--i": 2 })}>
-            Bonjour reads your deal emails and calls, proposes record updates, and shows the exact sentence behind each one.
+          <p className="rise inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-[12.5px] text-ink-2">
+            <Square color={HUES.green} className="size-2 rounded-full" />
+            For sales teams who live in their inbox
           </p>
-          <div className="rise mt-7 flex flex-wrap gap-2" style={v({ "--i": 3 })}>
-            <Link href="/login" className={`${btn.primary} h-9 px-4`}>
-              Try the demo
-            </Link>
-            <a href={GITHUB} className={`${btn.secondary} h-9 px-4`}>
-              Read the code
-            </a>
+          <h1 className="rise mt-5 max-w-[700px] text-[36px] font-medium leading-[1.08] tracking-[-0.035em] text-ink sm:text-[56px]" style={v({ "--i": 1 })}>
+            Your CRM, updated from your inbox.
+          </h1>
+          <p className="rise mt-4 max-w-[56ch] text-[16px] leading-relaxed text-muted sm:text-[17px]" style={v({ "--i": 2 })}>
+            Bonjour reads every email, call note and meeting on a deal and drafts the updates for you: stage, close date, amount, next step and risks. Each one
+            quotes the sentence it came from, and nothing is saved until you approve it.
+          </p>
+          <div className="rise mt-7 flex flex-wrap items-center gap-x-4 gap-y-3" style={v({ "--i": 3 })}>
+            <div className="flex gap-2">
+              <Link href="/login" className={`${btn.primary} h-9 px-4`}>
+                Open the live demo
+              </Link>
+              <a href={GITHUB} className={`${btn.secondary} h-9 px-4`}>
+                <GithubLogo size={15} />
+                View on GitHub
+              </a>
+            </div>
+            <p className="text-[12.5px] text-muted">No signup. The demo login is filled in for you.</p>
           </div>
 
           {/* The product, built from the app's own components and the d-01 fixture */}
@@ -187,6 +196,14 @@ export default function Landing() {
                 <ChangeCard change={lead} contacts={dealContacts} source={source(lead)} active actions={<FakeActions />} />
                 <ActivityItem activity={leadEmail} highlight={findQuote(leadEmail.body, lead.evidence.quote)} clip />
               </div>
+              <p className="mt-4 flex max-w-[78ch] gap-2 text-[13.5px] leading-relaxed text-muted">
+                <span className="mt-[7px] size-1.5 shrink-0 rounded-full bg-[#eab308]" aria-hidden="true" />
+                <span>
+                  <span className="text-ink">What you are looking at:</span> the buyer at {company} mentioned a budget freeze in the P.S. of a friendly email. Bonjour
+                  caught it, suggested moving the close date from {day(deal.closeDate)} to {show("closeDate", lead.to, dealContacts)}, and highlighted the exact
+                  sentence so the rep can check it before approving.
+                </span>
+              </p>
             </div>
           )}
         </section>
@@ -194,30 +211,24 @@ export default function Landing() {
         {/* How it works */}
         <section id="how" className="scroll-mt-14">
           <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-            <h2 className="reveal text-[26px] font-medium leading-[1.2] tracking-[-0.03em] sm:text-[34px]">
-              <span className="block text-ink">
-                Reads your deal emails and calls
-                <Sup n="01" />
-              </span>
-              <span className="block text-muted">
-                Proposes updates with the exact sentence
-                <Sup n="02" />
-              </span>
-              <span className="block text-muted">
-                You approve, nothing changes without a click
-                <Sup n="03" />
-              </span>
+            <p className="reveal text-[13px] font-medium text-muted">How it works</p>
+            <h2 className="reveal mt-2 max-w-[24ch] text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">
+              From a full inbox to an up-to-date pipeline in three steps.
             </h2>
 
             <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-4">
-              <Step n="01" title="Read" body={`Every email, call and meeting note on a deal, oldest first. ${counts.activities} of them across ${counts.deals} deals in the demo.`}>
+              <Step
+                n="01"
+                title="It reads the whole deal"
+                body={`Every email, call note and meeting, in order, so a newer message wins over an older one. The demo has ${counts.activities} of them across ${counts.deals} deals.`}
+              >
                 <ul className="w-full max-w-[290px] divide-y divide-line overflow-hidden rounded-[10px] border border-line bg-surface shadow-panel">
                   {dealActivities.slice(0, 3).map((a) => (
                     <ActivityRow key={a.id} a={a} />
                   ))}
                 </ul>
               </Step>
-              <Step n="02" title="Propose" body="Each change carries a reason and a quote. Plain code checks the quote is really in that email before you see it.">
+              <Step n="02" title="It drafts updates, with proof" body="Each suggested change comes with a reason and the exact quote behind it. Bonjour checks the quote really appears in that email, so it cannot invent a source.">
                 <div className="w-full max-w-[290px] rounded-[10px] border border-line bg-surface p-3.5 shadow-panel">
                   <p className="text-[12px] font-medium text-muted">{FIELD_LABEL.closeDate}</p>
                   <p className="mt-1.5 flex items-center gap-2 text-[14px]">
@@ -233,7 +244,7 @@ export default function Landing() {
                   )}
                 </div>
               </Step>
-              <Step n="03" title="Approve" body="Approve or reject each change. A change whose quote cannot be found is struck through and cannot be approved.">
+              <Step n="03" title="You approve in one click" body="Approve or reject each change. Anything without a real source is crossed out and can never be saved.">
                 <div className="flex flex-col items-center gap-3">
                   <div className="flex gap-2">
                     <span className={`${btn.secondary} h-9 px-4`}>Reject</span>
@@ -251,9 +262,9 @@ export default function Landing() {
 
         {/* Bento */}
         <section className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="reveal text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">What the morning review looks like</h2>
+          <h2 className="reveal text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">What you get every morning</h2>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Tile title="Morning brief" body="Three counts and the changes worth a look, before the first call.">
+            <Tile title="A morning brief" body="How many deals changed overnight, which ones are at risk, and who is waiting on your reply.">
               <div className="w-[236px] rounded-[10px] border border-line bg-surface p-3.5 shadow-panel">
                 <p className="font-mono text-[10.5px] text-muted">{longDay(TODAY)}</p>
                 <p className="mt-0.5 text-[15px] font-medium tracking-[-0.02em] text-ink">Bonjour, Alex</p>
@@ -275,7 +286,7 @@ export default function Landing() {
               </div>
             </Tile>
 
-            <Tile title="Pipeline" body="A board by stage. A yellow dot means Bonjour has something for you to review.">
+            <Tile title="A pipeline that stays current" body="A yellow dot marks every deal with an update waiting for you.">
               <div className="w-[236px] rounded-[10px] bg-surface/70 p-1.5 ring-1 ring-line">
                 <p className="flex items-center gap-2 px-1.5 pb-1.5 pt-0.5 text-[12px] font-medium text-ink">
                   <Square color={stageTone("Proposal")} className="size-2.5 rounded-[3px]" />
@@ -299,7 +310,7 @@ export default function Landing() {
               </div>
             </Tile>
 
-            <Tile title="Evidence chips" body="Click the chip and the sentence lights up inside the email or call note.">
+            <Tile title="Proof for every change" body="Click any quote and the exact sentence lights up in the original email or call note.">
               {seats && seatsQuote && (
                 <div className="flex max-w-[270px] items-center gap-1.5 rounded-[6px] border border-[color-mix(in_srgb,var(--mark)_60%,var(--line-strong))] bg-mark-soft px-2 py-1.5 text-[12px] shadow-panel">
                   <Quotes size={13} weight="fill" className="shrink-0 text-ink" />
@@ -309,7 +320,7 @@ export default function Landing() {
               )}
             </Tile>
 
-            <Tile title="Catches what people skim" body="The delay was in the P.S. of a long, happy email. Bonjour moved the close date and flagged the risk.">
+            <Tile title="It catches what people skim" body="The delay was hidden in the P.S. of a long, happy email. Bonjour moved the close date and flagged the risk.">
               {psText && (
                 <p className="sweep-view w-full max-w-[290px] rounded-[10px] border border-line bg-surface p-3.5 text-[12.5px] leading-[1.6] text-ink-2 shadow-panel">
                   {psText.split(psMark)[0]}
@@ -319,7 +330,7 @@ export default function Landing() {
               )}
             </Tile>
 
-            <Tile title="Compared with a plain prompt" body={`Same model, same output shape, a one-line prompt. Correct changes out of ${bon?.expected ?? "the"} expected.`}>
+            <Tile title="More accurate than a plain prompt" body={`The same AI model, simply asked to update the deal, gets fewer right. Correct updates out of ${bon?.expected ?? "the"}:`}>
               <div className="grid w-[260px] grid-cols-3 gap-1.5">
                 {RECOMMENDERS.map((id) => {
                   const a = agg(id);
@@ -334,7 +345,7 @@ export default function Landing() {
               </div>
             </Tile>
 
-            <Tile title="MCP server" body="The same agent behind three tools. Point any MCP client at it and ask what changed.">
+            <Tile title="Ask from your AI assistant" body="Connect Bonjour to any assistant that supports MCP and ask what changed on your deals.">
               <div className="w-full max-w-[290px] rounded-[10px] bg-[#0a0a0a] p-3.5 font-mono text-[11.5px] leading-[1.7] text-[#a3a3a3] shadow-panel ring-1 ring-white/10">
                 <p>
                   <span className="text-[#525252]">$</span> <span className="text-white">npm run mcp</span>
@@ -351,10 +362,10 @@ export default function Landing() {
         <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <h2 className="reveal max-w-[22ch] text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">
-              {deals.length} test deals. Each one hides a trap.
+              Sentences a plain AI prompt got wrong
             </h2>
             <p className="reveal mt-3 max-w-[56ch] text-[15px] leading-relaxed text-muted">
-              {traps.length} of them, with the line that sets the trap and what each recommender did in the committed run.
+              Real lines from the {deals.length} demo deals, and what happened when a plain prompt and Bonjour each read them.
             </p>
           </div>
           {/* Starts on the content edge and bleeds off the right of the viewport */}
@@ -390,11 +401,12 @@ export default function Landing() {
         {scoreboard && (
           <section id="eval" className="scroll-mt-14 border-t border-line bg-canvas">
             <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-              <h2 className="reveal text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">An honest eval, small on purpose.</h2>
+              <h2 className="reveal text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">How accurate is it?</h2>
               {bon && (
                 <p className="reveal mt-3 max-w-[62ch] text-[15px] leading-relaxed text-muted">
-                  {bon.deals} hand-written deals, each with one trap. Bonjour got {bon.correct} of {bon.expected} expected changes right
-                  {naive ? `, against ${naive.correct} for a naive prompt that proposed ${naive.spurious} changes nobody needed` : ""}.
+                  We wrote {bon.deals} realistic deals containing {bon.expected} updates a careful rep would make. Bonjour got {bon.correct} right, with{" "}
+                  {bon.wrongValue === 0 ? "no" : bon.wrongValue} wrong edits and {bon.unsupported === 0 ? "no" : bon.unsupported} made-up quotes.
+                  {naive ? ` The same AI model with a plain prompt got ${naive.correct} right and made ${naive.spurious} edits nobody needed.` : ""}
                 </p>
               )}
               <div className="reveal mt-10 max-w-4xl">
@@ -405,7 +417,7 @@ export default function Landing() {
                 href="/app/eval"
                 className="group mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink"
               >
-                See every deal and every proposed change
+                See every test deal and what each approach suggested
                 <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
@@ -416,9 +428,10 @@ export default function Landing() {
         <section className="border-t border-line">
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-24 sm:px-6 sm:py-32 lg:grid-cols-2 lg:gap-16">
             <div className="reveal">
-              <h2 className="text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">Open source. Works from any MCP client.</h2>
+              <h2 className="text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">Open source. Use it from your AI assistant.</h2>
               <p className="mt-3 max-w-[50ch] text-[15px] leading-relaxed text-muted">
-                MIT licensed. The same agent runs behind an MCP server with three tools: list deals, read one, and propose updates with citations.
+                MIT licensed, so you can read every line, run it yourself or fork it. It also runs as an MCP server, the standard way AI assistants use outside
+                tools, with three tools: list your deals, read one, and suggest updates with quotes.
               </p>
               <a href={GITHUB} className={`${btn.secondary} mt-7 h-9 px-3.5`}>
                 <GithubLogo size={15} />
@@ -431,6 +444,19 @@ export default function Landing() {
                 <code>{MCP_SNIPPET}</code>
               </pre>
             </Window>
+          </div>
+        </section>
+        {/* Closing call to action */}
+        <section className="border-t border-line bg-canvas">
+          <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-20 sm:px-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">See it work on {deals.length} demo deals.</h2>
+              <p className="mt-2 text-[15px] text-muted">No signup, nothing to install. It takes about two minutes.</p>
+            </div>
+            <Link href="/login" className={`${btn.primary} h-10 shrink-0 px-5`}>
+              Open the live demo
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </section>
       </main>
@@ -523,9 +549,9 @@ function SideNav({ active }: { active: string }) {
 function MiniScore({ board }: { board: Scoreboard }) {
   const rows: [string, (a: NonNullable<ReturnType<typeof aggOf>>) => string][] = [
     ["Correct", (a) => `${a.correct}/${a.expected}`],
-    ["Spurious", (a) => String(a.spurious)],
+    ["Unneeded", (a) => String(a.spurious)],
     ["Missed", (a) => String(a.missed)],
-    ["Risk recall", (a) => (a.riskRecall === null ? "n/a" : `${Math.round(a.riskRecall * 100)}%`)],
+    ["Risks caught", (a) => (a.riskRecall === null ? "n/a" : `${Math.round(a.riskRecall * 100)}%`)],
   ];
   function aggOf(id: RecommenderId) {
     const r = board.recommenders[id];
@@ -538,7 +564,7 @@ function MiniScore({ board }: { board: Scoreboard }) {
           <th className="px-3.5 py-2 text-left font-normal" />
           {RECOMMENDERS.map((id) => (
             <th key={id} className={`px-2.5 py-2 text-right font-medium ${id === "bonjour" ? "bg-canvas text-ink" : "font-normal"}`}>
-              {id === "rules" ? "Rules" : id === "naive" ? "Naive" : "Bonjour"}
+              {id === "rules" ? "Rules" : id === "naive" ? "Plain" : "Bonjour"}
             </th>
           ))}
         </tr>
@@ -564,9 +590,6 @@ function MiniScore({ board }: { board: Scoreboard }) {
   );
 }
 
-function Sup({ n }: { n: string }) {
-  return <sup className="ml-1 align-super font-mono text-[11px] font-normal tracking-normal text-muted">{n}</sup>;
-}
 
 function Step({ n, title, body, children }: { n: string; title: string; body: string; children: React.ReactNode }) {
   return (

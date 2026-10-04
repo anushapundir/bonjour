@@ -2,19 +2,19 @@ import type { Run, Scoreboard } from "../lib/results";
 import type { Aggregate } from "../lib/score";
 import { RECOMMENDERS, type RecommenderId } from "../lib/types";
 
-export const REC_LABEL: Record<RecommenderId, string> = { rules: "Keyword rules", naive: "Naive LLM", bonjour: "Bonjour" };
+export const REC_LABEL: Record<RecommenderId, string> = { rules: "Keyword rules", naive: "Plain prompt", bonjour: "Bonjour" };
 
 const pct = (x: number | null) => (x === null ? "n/a" : `${Math.round(x * 100)}%`);
 
 // Every number here is read from results/scoreboard.json. Lower is better unless marked.
 const METRICS: { label: string; hint: string; value: (a: Aggregate) => string; higherBetter?: boolean }[] = [
-  { label: "Correct", hint: "expected changes proposed with the right value", value: (a) => `${a.correct} of ${a.expected}`, higherBetter: true },
+  { label: "Correct updates", hint: "expected changes suggested with the right value", value: (a) => `${a.correct} of ${a.expected}`, higherBetter: true },
   { label: "Wrong value", hint: "right field, wrong value", value: (a) => String(a.wrongValue) },
-  { label: "Missed", hint: "expected changes not proposed", value: (a) => String(a.missed) },
-  { label: "Spurious", hint: "changes nobody should make", value: (a) => String(a.spurious) },
-  { label: "Unsupported citations", hint: "quote not found in the cited activity", value: (a) => `${a.unsupported} of ${a.proposed}` },
-  { label: "Risk recall", hint: "real risks that were flagged", value: (a) => pct(a.riskRecall), higherBetter: true },
-  { label: "No-change deals untouched", hint: "deals where the right answer is nothing", value: (a) => `${a.noChangeDealsUntouched} of ${a.noChangeDeals}`, higherBetter: true },
+  { label: "Missed updates", hint: "expected changes not suggested", value: (a) => String(a.missed) },
+  { label: "Unneeded edits", hint: "changes nobody should make", value: (a) => String(a.spurious) },
+  { label: "Made-up quotes", hint: "quote not found in the email or note it cites", value: (a) => `${a.unsupported} of ${a.proposed}` },
+  { label: "Risks caught", hint: "real risks that were flagged", value: (a) => pct(a.riskRecall), higherBetter: true },
+  { label: "Quiet deals left alone", hint: "deals where the right answer is to change nothing", value: (a) => `${a.noChangeDealsUntouched} of ${a.noChangeDeals}`, higherBetter: true },
 ];
 
 export function EvalTable({ board, compact }: { board: Scoreboard; compact?: boolean }) {

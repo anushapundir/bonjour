@@ -6,8 +6,8 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: { default: "Bonjour", template: "%s | Bonjour" },
-  description: "An open-source CRM that reads your deal emails and calls, proposes record updates, and shows the line every change came from.",
+  title: { default: "Bonjour: your CRM, updated from your inbox", template: "%s | Bonjour" },
+  description: "Bonjour reads your deal emails, calls and meeting notes, drafts the CRM updates, and quotes the sentence behind each one. Nothing is saved until you approve it. Open source.",
   referrer: "no-referrer",
 };
 

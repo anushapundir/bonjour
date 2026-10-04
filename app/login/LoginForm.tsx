@@ -39,13 +39,13 @@ export function LoginForm({ next }: { next: string }) {
           <label htmlFor="email" className="text-[13px] font-medium text-ink">
             Email
           </label>
-          <input ref={email} id="email" name="email" type="email" autoComplete="username" required className={input} />
+          <input ref={email} id="email" name="email" type="email" defaultValue={DEMO_EMAIL} autoComplete="username" required className={input} />
         </div>
         <div className="grid gap-1.5">
           <label htmlFor="password" className="text-[13px] font-medium text-ink">
             Password
           </label>
-          <input ref={password} id="password" name="password" type="password" autoComplete="current-password" required className={input} />
+          <input ref={password} id="password" name="password" type="password" defaultValue={DEMO_PASSWORD} autoComplete="current-password" required className={input} />
         </div>
         {error && (
           <p role="alert" className="rounded-[8px] bg-bad-soft px-3 py-2 text-[13px] text-bad">
@@ -53,7 +53,7 @@ export function LoginForm({ next }: { next: string }) {
           </p>
         )}
         <button disabled={pending} className={`${btn.primary} h-9 w-full`}>
-          {pending ? "Signing in" : "Sign in"}
+          {pending ? "Opening the demo" : "Sign in to the demo"}
         </button>
       </form>
     </>

@@ -22,7 +22,7 @@ type Props = { deal: Deal; company: Company; contacts: Contact[]; activities: Ac
 
 const TABS: { id: RecommenderId; label: string }[] = [
   { id: "bonjour", label: "Bonjour" },
-  { id: "naive", label: "Naive LLM" },
+  { id: "naive", label: "Plain prompt" },
   { id: "rules", label: "Rules" },
 ];
 
