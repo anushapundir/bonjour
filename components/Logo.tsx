@@ -1,10 +1,7 @@
-// A black rounded square with a lowercase b, next to the wordmark.
+// The bonjour mark: a lowercase b whose bowl holds a rising sun, next to the wordmark.
 export function Mark({ className = "size-[22px]" }: { className?: string }) {
-  return (
-    <span aria-hidden="true" className={`grid shrink-0 place-items-center rounded-[6px] bg-ink text-[14px] font-semibold leading-none text-bg ${className}`}>
-      <span className="-mt-px">b</span>
-    </span>
-  );
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src="/bonjour-mark.png" alt="" aria-hidden="true" className={`shrink-0 rounded-[6px] object-cover ${className}`} />;
 }
 
 export function Logo({ className = "" }: { className?: string }) {

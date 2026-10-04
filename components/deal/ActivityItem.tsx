@@ -1,6 +1,7 @@
 import { CalendarBlank, EnvelopeSimple, NotePencil, Phone } from "@phosphor-icons/react/dist/ssr";
 import { stamp } from "../../lib/format";
 import type { Activity } from "../../lib/types";
+import { Avatar } from "../ui";
 
 const KIND = {
   email: { label: "Email", icon: EnvelopeSimple },
@@ -34,8 +35,11 @@ export function ActivityItem({ activity, highlight, clip }: Props) {
   return (
     <article id={activity.id} className="scroll-mt-24 rounded-[10px] border border-line bg-surface shadow-panel">
       <header className="flex items-start gap-3 border-b border-line px-3.5 py-2.5">
-        <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-[6px] border border-line bg-surface-2 text-muted">
-          <Icon size={14} />
+        <span className="relative mt-0.5 shrink-0">
+          <Avatar name={personName(activity.from)} className="size-7 text-[10px]" />
+          <span className="absolute -bottom-1 -right-1 grid size-4 place-items-center rounded-full border border-line bg-surface text-muted">
+            <Icon size={9} weight="bold" />
+          </span>
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">

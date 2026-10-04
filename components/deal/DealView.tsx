@@ -9,7 +9,7 @@ import type { Verdict } from "../../lib/score";
 import type { Activity, Company, Contact, Deal, Field, RecommenderId } from "../../lib/types";
 import type { VerifiedChange } from "../../lib/verify";
 import { useDemo, useUpdatedFields } from "../app/DemoState";
-import { Monogram, StageBadge, btn } from "../ui";
+import { Avatar, Monogram, StageBadge, btn } from "../ui";
 import { ActivityItem } from "./ActivityItem";
 import { ChangeCard } from "./ChangeCard";
 
@@ -96,17 +96,23 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
             {field("nextStep", deal.nextStep, deal.nextStep)}
             <div className="grid grid-cols-[96px_minmax(0,1fr)] items-baseline gap-3 py-2">
               <dt className="text-[12px] text-muted">Owner</dt>
-              <dd className="text-[13px] text-ink">{deal.ownerName}</dd>
+              <dd className="flex items-center gap-2 text-[13px] text-ink">
+                <Avatar name={deal.ownerName} className="size-5 text-[9px]" />
+                {deal.ownerName}
+              </dd>
             </div>
             {field(
               updated.has("addContact") ? "addContact" : "contactLeft",
               <ul className="space-y-1.5">
                 {people.map((p) => (
-                  <li key={p.id} className="leading-snug">
-                    <span className={p.left ? "text-muted line-through decoration-faint" : ""}>{p.name}</span>
-                    {p.left && <span className="ml-1.5 rounded-[4px] bg-bad-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-bad">Left</span>}
-                    {p.added && !p.left && <span className="ml-1.5 rounded-[4px] bg-good-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-good">New</span>}
-                    <span className="block text-xs text-muted">{p.title}</span>
+                  <li key={p.id} className="flex gap-2 leading-snug">
+                    <Avatar name={p.name} className={`mt-0.5 size-6 text-[10px] ${p.left ? "opacity-50 grayscale" : ""}`} />
+                    <span className="min-w-0">
+                      <span className={p.left ? "text-muted line-through decoration-faint" : ""}>{p.name}</span>
+                      {p.left && <span className="ml-1.5 rounded-[4px] bg-bad-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-bad">Left</span>}
+                      {p.added && !p.left && <span className="ml-1.5 rounded-[4px] bg-good-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-good">New</span>}
+                      <span className="block text-xs text-muted">{p.title}</span>
+                    </span>
                   </li>
                 ))}
               </ul>,

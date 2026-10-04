@@ -3,6 +3,7 @@
 import { ArrowCounterClockwise, SignOut } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useRef, useState } from "react";
 import { signOut } from "../../app/login/actions";
+import { Avatar } from "../ui";
 import { useDemo } from "./DemoState";
 
 export function UserMenu() {
@@ -34,9 +35,9 @@ export function UserMenu() {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Account menu"
-        className="grid size-7 place-items-center rounded-full bg-[#db2777] text-[11px] font-medium text-white"
+        className="grid size-7 place-items-center overflow-hidden rounded-full ring-1 ring-line"
       >
-        AL
+        <Avatar name="Alex" className="size-7" />
       </button>
       {open && (
         <div role="menu" className="absolute right-0 top-10 z-50 w-60 rounded-[10px] border border-line bg-surface p-1 shadow-float">

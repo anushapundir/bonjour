@@ -1,4 +1,6 @@
 import type { Verdict } from "../lib/score";
+import companies from "../data/companies.json";
+import contacts from "../data/contacts.json";
 
 // The small set of colors that label things: deals, stages, sections. Dark enough for a white letter on top.
 export const HUES = {
@@ -55,21 +57,48 @@ export function VerdictTag({ verdict }: { verdict: Verdict }) {
   return <span className={`rounded-[4px] px-1.5 py-0.5 font-mono text-[10.5px] font-medium ${v.className}`}>{v.label}</span>;
 }
 
-// A company mark: its initials on a color picked from its name, so the same company always gets the same square.
+// A company mark: its logo from public/logos, else its initials on a color picked from its name.
 const TONES = [HUES.violet, HUES.pink, HUES.blue, HUES.green, HUES.orange, HUES.teal, HUES.amber, HUES.red];
 export const toneOf = (name: string) => TONES[[...name].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % TONES.length]!;
+const LOGO_ID = new Map(companies.map((c) => [c.name, c.id]));
 
-export function Monogram({ name, className = "size-7 text-[11px]" }: { name: string; className?: string }) {
-  const letters = name
+const initialsOf = (name: string) =>
+  name
     .split(/\s+/)
     .filter((w) => /^[A-Za-z]/.test(w))
     .slice(0, 2)
     .map((w) => w[0])
     .join("")
     .toUpperCase();
+
+export function Monogram({ name, className = "size-7 text-[11px]" }: { name: string; className?: string }) {
+  const id = LOGO_ID.get(name);
+  if (id) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={`/logos/${id}.png`} alt="" aria-hidden="true" className={`shrink-0 rounded-[6px] border border-line bg-white object-contain p-[2px] ${className}`} />
+    );
+  }
+  const letters = initialsOf(name);
   return (
     <span aria-hidden="true" className={`grid shrink-0 place-items-center rounded-[6px] font-medium text-white ${className}`} style={{ background: toneOf(name) }}>
       {letters}
+    </span>
+  );
+}
+
+// Headshots in public/avatars are named after the person ("Dana Whitfield" -> dana-whitfield.png).
+const AVATARS = new Set([...contacts.map((c) => c.name), "Marcus Bell", "Maya Lindgren", "Theo Brandt", "Ines Carvalho", "Alex"]);
+const avatarFile = (name: string) => `/avatars/${name.toLowerCase().replace(/[^a-z]+/g, "-")}.png`;
+
+export function Avatar({ name, className = "size-6 text-[10px]" }: { name: string; className?: string }) {
+  if (AVATARS.has(name)) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={avatarFile(name)} alt="" aria-hidden="true" className={`shrink-0 rounded-full bg-surface-2 object-cover ${className}`} />;
+  }
+  return (
+    <span aria-hidden="true" className={`grid shrink-0 place-items-center rounded-full border border-line bg-surface-2 font-medium text-ink-2 ${className}`}>
+      {initialsOf(name)}
     </span>
   );
 }

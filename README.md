@@ -122,6 +122,7 @@ The same agent runs behind an MCP server with three tools: `list_deals`, `get_de
 - `data/` fixtures and the answer key
 - `results/` committed eval output
 - `mcp/` the MCP server
+- `public/` the logo, company logos and headshots. The companies and people are fictional and the images are generated placeholders, not real people.
 
 ## License
 

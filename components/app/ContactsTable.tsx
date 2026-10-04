@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { initials, dealTitle } from "../../lib/format";
-import { PageHeader } from "../ui";
+import { dealTitle } from "../../lib/format";
+import { Avatar, PageHeader } from "../ui";
 import { useDemo } from "./DemoState";
 
 export function ContactsTable() {
@@ -33,7 +33,7 @@ export function ContactsTable() {
               <tr key={r.id} id={r.id} className="scroll-mt-24 target:bg-mark-soft hover:bg-canvas">
                 <td className="px-3 py-2.5">
                   <span className="flex items-center gap-2.5">
-                    <span className="grid size-7 shrink-0 place-items-center rounded-full border border-line bg-surface-2 text-[11px] font-medium text-ink-2">{initials(r.name)}</span>
+                    <Avatar name={r.name} className="size-7 text-[11px]" />
                     <span>
                       <span className={`block font-medium ${r.left ? "text-muted line-through decoration-faint" : "text-ink"}`}>{r.name}</span>
                       <span className="block text-xs text-muted">{r.title}</span>
