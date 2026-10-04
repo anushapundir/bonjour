@@ -25,12 +25,12 @@ export function ChangeCard({ change, contacts, source, verdict, status, active, 
 
   return (
     <div
-      className={`rounded-[14px] border bg-surface p-4 shadow-panel transition-[border-color,box-shadow,opacity] ${
-        active ? "border-accent shadow-[0_0_0_3px_var(--accent-soft),var(--shadow)]" : "border-line"
+      className={`rounded-[10px] border bg-surface p-3.5 shadow-panel transition-[border-color,box-shadow,opacity] ${
+        active ? "border-ink shadow-[0_0_0_3px_var(--accent-soft)]" : "border-line"
       } ${dim ? "opacity-60" : ""}`}
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted">{FIELD_LABEL[change.field]}</span>
+        <span className="text-[12px] font-medium text-muted">{FIELD_LABEL[change.field]}</span>
         <span className="flex items-center gap-1.5">
           {verdict && <VerdictTag verdict={verdict} />}
           {status === "approved" && <span className="font-mono text-[11px] font-medium text-good">Approved</span>}
@@ -38,11 +38,11 @@ export function ChangeCard({ change, contacts, source, verdict, status, active, 
         </span>
       </div>
 
-      <div className="mt-2.5 space-y-1 text-[14px] leading-snug">
+      <div className="mt-2 space-y-1 text-[13.5px] leading-snug">
         {before && (
           <p className="flex gap-2 text-muted">
             <span className="w-3 shrink-0 select-none text-center" aria-label="Before">−</span>
-            <span className="min-w-0 break-words line-through decoration-line-strong">{before}</span>
+            <span className="min-w-0 break-words line-through decoration-faint">{before}</span>
           </p>
         )}
         <p className={`flex gap-2 ${unsupported ? "text-muted" : "text-ink"}`}>
@@ -55,7 +55,7 @@ export function ChangeCard({ change, contacts, source, verdict, status, active, 
         </p>
       </div>
 
-      <p className="mt-2.5 text-[12.5px] leading-relaxed text-muted">{change.reason}</p>
+      <p className="mt-2 text-[12.5px] leading-relaxed text-muted">{change.reason}</p>
 
       {unsupported && (
         <p className="mt-2 flex items-center gap-1.5 text-[12.5px] font-medium text-bad">
@@ -70,13 +70,13 @@ export function ChangeCard({ change, contacts, source, verdict, status, active, 
           onClick={onEvidence}
           aria-pressed={active}
           title={change.evidence.quote || "No quote given"}
-          className={`flex min-w-0 max-w-full items-center gap-1.5 rounded-full border py-1 pl-2 pr-2.5 text-left text-xs transition-colors ${
-            active ? "border-accent/60 bg-accent-soft text-ink" : "border-line bg-surface-2/70 text-ink-2 hover:border-line-strong"
+          className={`flex min-w-0 max-w-full items-center gap-1.5 rounded-[6px] border py-1 pl-1.5 pr-2 text-left text-xs transition-colors ${
+            active ? "border-[color-mix(in_srgb,var(--mark)_60%,var(--line-strong))] bg-mark-soft text-ink" : "border-line bg-surface-2 text-ink-2 hover:border-line-strong"
           }`}
         >
-          <Quotes size={13} weight="fill" className={unsupported ? "shrink-0 text-bad" : "shrink-0 text-accent"} />
+          <Quotes size={13} weight="fill" className={unsupported ? "shrink-0 text-bad" : "shrink-0 text-ink"} />
           {source && <span className="shrink-0 font-mono text-[11px] text-ink-2">{source}</span>}
-          <span className="truncate font-serif text-[13px] italic text-muted">{change.evidence.quote ? `“${change.evidence.quote}”` : "no quote"}</span>
+          <span className="truncate text-[12px] text-muted">{change.evidence.quote ? `“${change.evidence.quote}”` : "no quote"}</span>
         </button>
         {actions}
       </div>

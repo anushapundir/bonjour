@@ -20,14 +20,14 @@ const METRICS: { label: string; hint: string; value: (a: Aggregate) => string; h
 export function EvalTable({ board, compact }: { board: Scoreboard; compact?: boolean }) {
   const runs = RECOMMENDERS.map((id) => [id, board.recommenders[id]] as [RecommenderId, Run | undefined]);
   return (
-    <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-panel">
+    <div className="overflow-x-auto rounded-[12px] border border-line bg-surface shadow-panel">
       <table className="w-full min-w-[560px] text-left text-[13.5px]">
         <thead>
           <tr className="border-b border-line">
-            <th className="px-4 py-3.5 align-bottom font-mono text-[11px] font-normal text-muted">Metric</th>
+            <th className="px-4 py-3 align-bottom text-[12px] font-normal text-muted">Metric</th>
             {runs.map(([id, run]) => (
-              <th key={id} className={`px-4 py-3.5 text-right align-bottom ${id === "bonjour" ? "bg-accent-soft/50" : ""}`}>
-                <span className={`block font-serif text-[17px] font-normal ${id === "bonjour" ? "italic text-ink" : "text-ink-2"}`}>{REC_LABEL[id]}</span>
+              <th key={id} className={`px-4 py-3 text-right align-bottom ${id === "bonjour" ? "bg-canvas" : ""}`}>
+                <span className={`block text-[13px] font-medium ${id === "bonjour" ? "text-ink" : "text-muted"}`}>{REC_LABEL[id]}</span>
                 {!compact && <span className="block font-mono text-[10.5px] font-normal text-muted">{run?.status === "ran" ? run.model : "not run yet"}</span>}
               </th>
             ))}
@@ -36,12 +36,12 @@ export function EvalTable({ board, compact }: { board: Scoreboard; compact?: boo
         <tbody className="divide-y divide-line">
           {METRICS.map((m) => (
             <tr key={m.label}>
-              <th scope="row" className="px-4 py-3 font-normal">
+              <th scope="row" className="px-4 py-2.5 font-normal">
                 <span className="block text-ink">{m.label}</span>
                 {!compact && <span className="block text-[12px] text-muted">{m.hint}{m.higherBetter ? ", higher is better" : ""}</span>}
               </th>
               {runs.map(([id, run]) => (
-                <td key={id} className={`px-4 py-3 text-right font-mono text-[13px] ${id === "bonjour" ? "bg-accent-soft/50 font-medium text-ink" : "text-muted"}`}>
+                <td key={id} className={`px-4 py-2.5 text-right font-mono text-[13px] tabular-nums ${id === "bonjour" ? "bg-canvas font-medium text-ink" : "text-muted"}`}>
                   {run?.status === "ran" ? m.value(run.aggregate) : <span className="text-muted">not run yet</span>}
                 </td>
               ))}

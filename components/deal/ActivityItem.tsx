@@ -32,9 +32,9 @@ export function ActivityItem({ activity, highlight, clip }: Props) {
   }
 
   return (
-    <article id={activity.id} className="scroll-mt-24 rounded-[14px] border border-line bg-surface shadow-panel">
-      <header className="flex items-start gap-3 border-b border-line/80 px-4 py-3">
-        <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-line bg-surface-2 text-muted">
+    <article id={activity.id} className="scroll-mt-24 rounded-[10px] border border-line bg-surface shadow-panel">
+      <header className="flex items-start gap-3 border-b border-line px-3.5 py-2.5">
+        <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-[6px] border border-line bg-surface-2 text-muted">
           <Icon size={14} />
         </span>
         <div className="min-w-0 flex-1">
@@ -50,7 +50,7 @@ export function ActivityItem({ activity, highlight, clip }: Props) {
           {activity.subject && <p className="mt-0.5 truncate text-[13px] font-medium text-ink-2">{activity.subject}</p>}
         </div>
       </header>
-      <div className="whitespace-pre-wrap break-words px-4 py-3.5 text-[14px] leading-[1.7] text-ink-2">
+      <div className="whitespace-pre-wrap break-words px-3.5 py-3 text-[13.5px] leading-[1.65] text-ink-2">
         {range ? (
           <>
             {body.slice(0, range.start)}

@@ -1,89 +1,94 @@
 @import "tailwindcss";
 
-/* Warm paper and ink, with one accent of morning light. */
+/* Black and white first. Color lives in small square icons and the yellow of a highlighter. */
 :root {
-  --bg: #f6f3ee;
-  --surface: #fcfaf6;
-  --surface-2: #efeae2;
-  --line: #e5ded3;
-  --line-strong: #d2c8ba;
-  --ink: #16130f;
-  --ink-2: #3d3730;
-  --muted: #6e665c;
-  /* Fill accent for marks, dots and the sun. Too light for text on paper, so text uses --accent-text. */
-  --accent: #e8743b;
-  --accent-text: #a84a1a;
-  --accent-ink: #fff8f1;
-  --accent-soft: #fbe7d8;
-  --mark: rgb(247 176 96 / 0.5);
-  --good: #376b44;
-  --good-soft: #e2ede2;
-  --bad: #9c3a26;
-  --bad-soft: #f6e1da;
-  --glass: rgb(252 250 246 / 0.62);
-  --glass-edge: rgb(255 255 255 / 0.7);
-  --shadow: 0 1px 0 rgb(22 19 15 / 0.03), 0 1px 2px rgb(70 45 20 / 0.06), 0 12px 28px -18px rgb(70 45 20 / 0.28);
-  --shadow-float: 0 1px 2px rgb(70 45 20 / 0.08), 0 30px 60px -30px rgb(70 45 20 / 0.45);
+  --bg: #ffffff;
+  --canvas: #f7f7f7;
+  --surface: #ffffff;
+  --surface-2: #f3f3f2;
+  --line: #e7e7e7;
+  --line-strong: #d6d6d6;
+  --ink: #0a0a0a;
+  --ink-2: #3b3b3b;
+  --muted: #6b6b6b;
+  --faint: #9a9a9a;
+  --accent: #0a0a0a;
+  --accent-text: #0a0a0a;
+  --accent-ink: #ffffff;
+  --accent-soft: #f0f0f0;
+  --mark: #fff07a;
+  --mark-soft: #fffbd6;
+  --good: #15803d;
+  --good-soft: #e9f6ee;
+  --bad: #c81e1e;
+  --bad-soft: #fdeeee;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-float: 0 0 0 1px rgb(0 0 0 / 0.04), 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 16px 32px -8px rgb(0 0 0 / 0.12);
+  --shadow-window: 0 0 0 1px rgb(0 0 0 / 0.04), 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 20px -6px rgb(0 0 0 / 0.07), 0 28px 56px -16px rgb(0 0 0 / 0.14);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1a1714;
-    --surface: #221e1a;
-    --surface-2: #2a2520;
-    --line: #36302a;
-    --line-strong: #4a4239;
-    --ink: #f1ece4;
-    --ink-2: #d2cabf;
-    --muted: #a39a8e;
-    --accent: #f08a52;
-    --accent-text: #f4a273;
-    --accent-ink: #1a1714;
-    --accent-soft: rgb(240 138 82 / 0.14);
-    --mark: rgb(240 150 80 / 0.34);
-    --good: #8fbf99;
-    --good-soft: rgb(143 191 153 / 0.12);
-    --bad: #e58a76;
-    --bad-soft: rgb(229 138 118 / 0.12);
-    --glass: rgb(34 30 26 / 0.6);
-    --glass-edge: rgb(255 255 255 / 0.09);
-    --shadow: 0 1px 0 rgb(0 0 0 / 0.2), 0 12px 28px -16px rgb(0 0 0 / 0.6);
-    --shadow-float: 0 1px 2px rgb(0 0 0 / 0.3), 0 30px 60px -28px rgb(0 0 0 / 0.8);
+    --bg: #0b0b0b;
+    --canvas: #0b0b0b;
+    --surface: #141414;
+    --surface-2: #1c1c1c;
+    --line: #262626;
+    --line-strong: #363636;
+    --ink: #ededed;
+    --ink-2: #c9c9c9;
+    --muted: #9a9a9a;
+    --faint: #6f6f6f;
+    --accent: #ededed;
+    --accent-text: #ededed;
+    --accent-ink: #0b0b0b;
+    --accent-soft: #232323;
+    --mark: rgb(234 179 8 / 0.32);
+    --mark-soft: rgb(234 179 8 / 0.1);
+    --good: #4ade80;
+    --good-soft: rgb(74 222 128 / 0.1);
+    --bad: #f87171;
+    --bad-soft: rgb(248 113 113 / 0.1);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-float: 0 0 0 1px rgb(255 255 255 / 0.06), 0 16px 32px -8px rgb(0 0 0 / 0.7);
+    --shadow-window: 0 0 0 1px rgb(255 255 255 / 0.06), 0 28px 56px -16px rgb(0 0 0 / 0.8);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #1a1714;
-  --surface: #221e1a;
-  --surface-2: #2a2520;
-  --line: #36302a;
-  --line-strong: #4a4239;
-  --ink: #f1ece4;
-  --ink-2: #d2cabf;
-  --muted: #a39a8e;
-  --accent: #f08a52;
-  --accent-text: #f4a273;
-  --accent-ink: #1a1714;
-  --accent-soft: rgb(240 138 82 / 0.14);
-  --mark: rgb(240 150 80 / 0.34);
-  --good: #8fbf99;
-  --good-soft: rgb(143 191 153 / 0.12);
-  --bad: #e58a76;
-  --bad-soft: rgb(229 138 118 / 0.12);
-  --glass: rgb(34 30 26 / 0.6);
-  --glass-edge: rgb(255 255 255 / 0.09);
-  --shadow: 0 1px 0 rgb(0 0 0 / 0.2), 0 12px 28px -16px rgb(0 0 0 / 0.6);
-  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.3), 0 30px 60px -28px rgb(0 0 0 / 0.8);
+  --bg: #0b0b0b;
+  --canvas: #0b0b0b;
+  --surface: #141414;
+  --surface-2: #1c1c1c;
+  --line: #262626;
+  --line-strong: #363636;
+  --ink: #ededed;
+  --ink-2: #c9c9c9;
+  --muted: #9a9a9a;
+  --faint: #6f6f6f;
+  --accent: #ededed;
+  --accent-text: #ededed;
+  --accent-ink: #0b0b0b;
+  --accent-soft: #232323;
+  --mark: rgb(234 179 8 / 0.32);
+  --mark-soft: rgb(234 179 8 / 0.1);
+  --good: #4ade80;
+  --good-soft: rgb(74 222 128 / 0.1);
+  --bad: #f87171;
+  --bad-soft: rgb(248 113 113 / 0.1);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-float: 0 0 0 1px rgb(255 255 255 / 0.06), 0 16px 32px -8px rgb(0 0 0 / 0.7);
+  --shadow-window: 0 0 0 1px rgb(255 255 255 / 0.06), 0 28px 56px -16px rgb(0 0 0 / 0.8);
   color-scheme: dark;
 }
 
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
   --color-bg: var(--bg);
+  --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-line: var(--line);
@@ -91,17 +96,20 @@
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-accent: var(--accent);
   --color-accent-text: var(--accent-text);
   --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
   --color-mark: var(--mark);
+  --color-mark-soft: var(--mark-soft);
   --color-good: var(--good);
   --color-good-soft: var(--good-soft);
   --color-bad: var(--bad);
   --color-bad-soft: var(--bad-soft);
   --shadow-panel: var(--shadow);
   --shadow-float: var(--shadow-float);
+  --shadow-window: var(--shadow-window);
 }
 
 html {
@@ -122,7 +130,7 @@ h1, h2, h3, p, li { text-wrap: pretty; }
 h1, h2 { text-wrap: balance; }
 
 :focus-visible {
-  outline: 2px solid var(--accent-text);
+  outline: 2px solid var(--ink);
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -131,7 +139,7 @@ h1, h2 { text-wrap: balance; }
   background: var(--mark);
 }
 
-/* Keys: buttons that look like something you press. A soft top highlight, a hairline edge, a small drop. */
+/* Buttons: small, flat, square-ish. Black primary, outlined secondary. */
 @layer components {
   .key {
     display: inline-flex;
@@ -139,85 +147,60 @@ h1, h2 { text-wrap: balance; }
     justify-content: center;
     gap: 0.375rem;
     height: 2rem;
-    padding: 0 0.85rem;
-    border-radius: 999px;
+    padding: 0 0.8rem;
+    border-radius: 8px;
     white-space: nowrap;
     font-size: 13px;
     font-weight: 500;
-    transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms;
+    transition: background-color 150ms, box-shadow 150ms, color 150ms, transform 150ms;
   }
   .key:active:not(:disabled) { transform: translateY(1px); }
   .key:disabled { opacity: 0.5; }
   .key-ink {
-    color: var(--bg);
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0) 55%), var(--ink);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), inset 0 -1px 0 rgb(0 0 0 / 0.25), 0 0 0 1px var(--ink), 0 1px 2px rgb(22 19 15 / 0.25), 0 6px 14px -8px rgb(22 19 15 / 0.5);
+    color: var(--accent-ink);
+    background: var(--ink);
   }
-  .key-ink:hover:not(:disabled) { background-color: var(--ink-2); }
-  .key-ink:active:not(:disabled) { box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.35), 0 0 0 1px var(--ink); }
+  .key-ink:hover:not(:disabled) { background: color-mix(in srgb, var(--ink) 82%, var(--bg)); }
   .key-light {
     color: var(--ink);
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.55), rgb(255 255 255 / 0)), var(--surface);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.8), 0 0 0 1px var(--line-strong), 0 1px 2px rgb(70 45 20 / 0.08);
+    background: var(--surface);
+    box-shadow: inset 0 0 0 1px var(--line-strong), var(--shadow);
   }
-  .key-light:hover:not(:disabled) { background-color: var(--surface-2); }
-  .key-light:active:not(:disabled) { box-shadow: inset 0 1px 2px rgb(70 45 20 / 0.15), 0 0 0 1px var(--line-strong); }
+  .key-light:hover:not(:disabled) { background: var(--surface-2); }
   .key-ghost {
     color: var(--muted);
     padding: 0 0.6rem;
   }
   .key-ghost:hover:not(:disabled) { color: var(--ink); background: var(--surface-2); }
 
-  /* Frosted glass, a web approximation: blur plus a light edge and inner highlight. */
-  .glass {
-    background: var(--glass);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    backdrop-filter: blur(18px) saturate(140%);
-    box-shadow: inset 0 1px 0 var(--glass-edge), 0 0 0 1px var(--glass-edge), var(--shadow-float);
-  }
-}
-
-:root[data-theme="dark"] .key-light,
-:root[data-theme="dark"] .key-ink {
-  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0));
-}
-:root[data-theme="dark"] .key-light { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px var(--line-strong); }
-:root[data-theme="dark"] .key-ink { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 0 0 1px var(--ink), 0 6px 14px -8px rgb(0 0 0 / 0.8); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .key-light,
-  :root:not([data-theme="light"]) .key-ink {
-    background-image: linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0));
-  }
-  :root:not([data-theme="light"]) .key-light { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px var(--line-strong); }
-  :root:not([data-theme="light"]) .key-ink { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 0 0 1px var(--ink), 0 6px 14px -8px rgb(0 0 0 / 0.8); }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .glass {
+  /* A product window: hairline edge, layered soft shadow, three small dots in the title bar. */
+  .window {
     background: var(--surface);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-window);
+    overflow: hidden;
   }
 }
 
-/* A field the reviewer just changed glows once, then settles into a quiet tint. */
+/* A field the reviewer just changed lights up once, then settles into a faint tint. */
 @keyframes flash {
   from { background-color: var(--mark); }
-  to { background-color: var(--accent-soft); }
+  to { background-color: var(--mark-soft); }
 }
 .flash {
   animation: flash 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-/* The cited line, marked like a highlighter on paper. Each wrapped line gets its own stroke. */
+/* The cited line, marked with a highlighter. Each wrapped line gets its own stroke. */
 mark.evidence {
   color: inherit;
   background-color: transparent;
-  background-image: linear-gradient(100deg, rgb(0 0 0 / 0) 0.15em, var(--mark) 0.3em, var(--mark) calc(100% - 0.3em), rgb(0 0 0 / 0) calc(100% - 0.1em));
+  background-image: linear-gradient(var(--mark), var(--mark));
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding: 0.05em 0.2em;
-  margin: 0 -0.1em;
+  padding: 0.08em 0.15em;
+  margin: 0 -0.05em;
+  border-radius: 2px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   scroll-margin: 120px;
@@ -228,9 +211,9 @@ mark.evidence {
     from { background-size: 0% 100%; }
   }
   mark.evidence {
-    animation: sweep 0.9s cubic-bezier(0.3, 0.7, 0.2, 1) 0.15s both;
+    animation: sweep 0.8s cubic-bezier(0.3, 0.7, 0.2, 1) 0.2s both;
   }
-  /* Below the fold, the stroke waits until the letter scrolls into view. */
+  /* Below the fold, the stroke waits until the line scrolls into view. */
   @supports (animation-timeline: view()) {
     .sweep-view mark.evidence {
       animation: sweep linear both;
@@ -240,36 +223,24 @@ mark.evidence {
   }
 
   @keyframes rise {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: none; }
   }
   .rise {
-    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(var(--i, 0) * 90ms);
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
   }
   @supports (animation-timeline: view()) {
     .reveal {
       animation: rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 40%;
+      animation-range: entry 0% entry 35%;
     }
-  }
-
-  /* Hero cards drift a few pixels, each on its own clock, like paper on a slow breeze. */
-  @keyframes drift {
-    0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--tilt, 0deg)); }
-    50% { transform: translate3d(0, var(--lift, -8px), 0) rotate(var(--tilt, 0deg)); }
-  }
-  .drift {
-    animation: drift var(--dur, 9s) cubic-bezier(0.45, 0, 0.55, 1) infinite;
-    animation-delay: var(--delay, 0s);
   }
 }
 
-.tilt { transform: rotate(var(--tilt, 0deg)); }
-
 @media (prefers-reduced-motion: reduce) {
-  .flash { animation: none; background-color: var(--accent-soft); }
+  .flash { animation: none; background-color: var(--mark-soft); }
 }
 
 /* Theme toggle shows the icon for the mode you would switch to. */
@@ -281,12 +252,20 @@ mark.evidence {
   :root:not([data-theme="light"]) .dark-hidden { display: none; }
 }
 
-/* Photos are tuned for paper. At night they dim so they do not glare, and text on them turns light. */
-.photo-dim { transition: filter 300ms; }
-.on-photo { color: #2a1d12; }
-:root[data-theme="dark"] .photo-dim { filter: brightness(0.5) saturate(0.85); }
-:root[data-theme="dark"] .on-photo { color: #f6e6d6; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .photo-dim { filter: brightness(0.5) saturate(0.85); }
-  :root:not([data-theme="light"]) .on-photo { color: #f6e6d6; }
+/* The traps row scrolls sideways inside its own box; hide the bar, keep the scroll. */
+.no-bar { scrollbar-width: none; }
+.no-bar::-webkit-scrollbar { display: none; }
+
+/* The landing nav gets its bottom hairline once the page scrolls. Browsers without scroll timelines keep the line. */
+.nav-edge { border-color: var(--line); }
+@supports (animation-timeline: scroll()) {
+  @keyframes nav-edge {
+    from { border-color: transparent; }
+    to { border-color: var(--line); }
+  }
+  .nav-edge {
+    animation: nav-edge linear both;
+    animation-timeline: scroll();
+    animation-range: 0 48px;
+  }
 }
