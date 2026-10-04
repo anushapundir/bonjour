@@ -6,7 +6,7 @@ import { DEMO_EMAIL, DEMO_PASSWORD } from "../../lib/demo";
 import { signIn } from "./actions";
 
 const input =
-  "h-10 w-full rounded-[12px] border border-line-strong bg-bg px-3.5 text-sm text-ink shadow-[inset_0_1px_2px_rgb(70_45_20/0.06)] placeholder:text-muted focus:border-accent-text focus:outline-none focus:ring-3 focus:ring-accent-soft";
+  "h-9 w-full rounded-[8px] border border-line-strong bg-surface px-3 text-[13.5px] text-ink shadow-panel placeholder:text-muted focus:border-ink focus:outline-none focus:ring-3 focus:ring-accent-soft";
 
 export function LoginForm({ next }: { next: string }) {
   const [error, action, pending] = useActionState(signIn, null);
@@ -20,8 +20,8 @@ export function LoginForm({ next }: { next: string }) {
 
   return (
     <>
-      <div className="mt-6 rounded-[16px] border border-dashed border-line-strong bg-surface-2/50 p-4">
-        <p className="text-[13px] font-medium text-ink">Demo account</p>
+      <div className="mt-5 rounded-[10px] border border-line bg-canvas p-3.5">
+        <p className="text-[12px] font-medium text-muted">Demo account</p>
         <dl className="mt-2 grid grid-cols-[76px_1fr] gap-y-1 text-[13px]">
           <dt className="text-muted">Email</dt>
           <dd className="font-mono text-[12.5px] text-ink">{DEMO_EMAIL}</dd>
@@ -33,7 +33,7 @@ export function LoginForm({ next }: { next: string }) {
         </button>
       </div>
 
-      <form action={action} className="mt-6 space-y-4">
+      <form action={action} className="mt-5 space-y-3.5">
         <input type="hidden" name="next" value={next} />
         <div className="grid gap-1.5">
           <label htmlFor="email" className="text-[13px] font-medium text-ink">
@@ -48,11 +48,11 @@ export function LoginForm({ next }: { next: string }) {
           <input ref={password} id="password" name="password" type="password" autoComplete="current-password" required className={input} />
         </div>
         {error && (
-          <p role="alert" className="rounded-[12px] bg-bad-soft px-3 py-2 text-[13px] text-bad">
+          <p role="alert" className="rounded-[8px] bg-bad-soft px-3 py-2 text-[13px] text-bad">
             {error}
           </p>
         )}
-        <button disabled={pending} className={`${btn.primary} h-10 w-full text-sm`}>
+        <button disabled={pending} className={`${btn.primary} h-9 w-full`}>
           {pending ? "Signing in" : "Sign in"}
         </button>
       </form>

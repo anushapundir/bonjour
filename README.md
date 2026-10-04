@@ -123,14 +123,6 @@ The same agent runs behind an MCP server with three tools: `list_deals`, `get_de
 - `results/` committed eval output
 - `mcp/` the MCP server
 
-## Photo credits
-
-The sky photos in `public/images/` are from Unsplash, used under the [Unsplash License](https://unsplash.com/license):
-
-- `dawn-clouds.jpg` (landing hero): [White cloud formations](https://unsplash.com/photos/_UCVrH-ZIIg) by [Davies Designs Studio](https://unsplash.com/@davies_designs)
-- `pink-peaks.jpg` (the P.S. showcase): [Snowy mountain peaks under pink sky](https://unsplash.com/photos/VmRxRz0gD_s) by [Diego PH](https://unsplash.com/@jdiegoph)
-- `apricot-sky.jpg` (sign in): [A pink and blue sky with a few clouds](https://unsplash.com/photos/Oh-HEJmxkXM) by [Heather Morse](https://unsplash.com/@heathernmorse)
-
 ## License
 
 MIT, see [LICENSE](LICENSE).
