@@ -18,7 +18,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggle}
       aria-label="Toggle dark mode"
-      className={`grid size-8 place-items-center rounded-md text-muted transition-colors hover:bg-surface-2 hover:text-ink ${className}`}
+      className={`grid size-8 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-ink ${className}`}
     >
       <Moon size={16} className="dark-hidden" />
       <Sun size={16} className="light-hidden" />

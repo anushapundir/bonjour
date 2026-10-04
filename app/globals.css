@@ -1,72 +1,88 @@
 @import "tailwindcss";
 
+/* Warm paper and ink, with one accent of morning light. */
 :root {
-  --bg: #f7f7f6;
-  --surface: #fefefe;
-  --surface-2: #f1f1ef;
-  --line: #e4e4e1;
-  --line-strong: #d2d2ce;
-  --ink: #18181b;
-  --ink-2: #3f3f46;
-  --muted: #6b6b73;
-  --accent: #2846c4;
-  --accent-ink: #fbfbfd;
-  --accent-soft: #e9edfb;
-  --mark: rgb(40 70 196 / 0.15);
-  --good: #15803d;
-  --good-soft: #e8f5ec;
-  --bad: #b42318;
-  --bad-soft: #fcecea;
-  --shadow: 0 1px 2px rgb(24 24 27 / 0.04), 0 8px 24px -12px rgb(24 24 27 / 0.12);
+  --bg: #f6f3ee;
+  --surface: #fcfaf6;
+  --surface-2: #efeae2;
+  --line: #e5ded3;
+  --line-strong: #d2c8ba;
+  --ink: #16130f;
+  --ink-2: #3d3730;
+  --muted: #6e665c;
+  /* Fill accent for marks, dots and the sun. Too light for text on paper, so text uses --accent-text. */
+  --accent: #e8743b;
+  --accent-text: #a84a1a;
+  --accent-ink: #fff8f1;
+  --accent-soft: #fbe7d8;
+  --mark: rgb(247 176 96 / 0.5);
+  --good: #376b44;
+  --good-soft: #e2ede2;
+  --bad: #9c3a26;
+  --bad-soft: #f6e1da;
+  --glass: rgb(252 250 246 / 0.62);
+  --glass-edge: rgb(255 255 255 / 0.7);
+  --shadow: 0 1px 0 rgb(22 19 15 / 0.03), 0 1px 2px rgb(70 45 20 / 0.06), 0 12px 28px -18px rgb(70 45 20 / 0.28);
+  --shadow-float: 0 1px 2px rgb(70 45 20 / 0.08), 0 30px 60px -30px rgb(70 45 20 / 0.45);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0e0f11;
-    --surface: #141518;
-    --surface-2: #1b1c20;
-    --line: #26272c;
-    --line-strong: #35363c;
-    --ink: #ececee;
-    --ink-2: #c6c6cc;
-    --muted: #8d8d96;
-    --accent: #8197f6;
-    --accent-ink: #0e0f11;
-    --accent-soft: rgb(129 151 246 / 0.14);
-    --mark: rgb(129 151 246 / 0.26);
-    --good: #5bd389;
-    --good-soft: rgb(91 211 137 / 0.12);
-    --bad: #f58a80;
-    --bad-soft: rgb(245 138 128 / 0.12);
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+    --bg: #1a1714;
+    --surface: #221e1a;
+    --surface-2: #2a2520;
+    --line: #36302a;
+    --line-strong: #4a4239;
+    --ink: #f1ece4;
+    --ink-2: #d2cabf;
+    --muted: #a39a8e;
+    --accent: #f08a52;
+    --accent-text: #f4a273;
+    --accent-ink: #1a1714;
+    --accent-soft: rgb(240 138 82 / 0.14);
+    --mark: rgb(240 150 80 / 0.34);
+    --good: #8fbf99;
+    --good-soft: rgb(143 191 153 / 0.12);
+    --bad: #e58a76;
+    --bad-soft: rgb(229 138 118 / 0.12);
+    --glass: rgb(34 30 26 / 0.6);
+    --glass-edge: rgb(255 255 255 / 0.09);
+    --shadow: 0 1px 0 rgb(0 0 0 / 0.2), 0 12px 28px -16px rgb(0 0 0 / 0.6);
+    --shadow-float: 0 1px 2px rgb(0 0 0 / 0.3), 0 30px 60px -28px rgb(0 0 0 / 0.8);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0e0f11;
-  --surface: #141518;
-  --surface-2: #1b1c20;
-  --line: #26272c;
-  --line-strong: #35363c;
-  --ink: #ececee;
-  --ink-2: #c6c6cc;
-  --muted: #8d8d96;
-  --accent: #8197f6;
-  --accent-ink: #0e0f11;
-  --accent-soft: rgb(129 151 246 / 0.14);
-  --mark: rgb(129 151 246 / 0.26);
-  --good: #5bd389;
-  --good-soft: rgb(91 211 137 / 0.12);
-  --bad: #f58a80;
-  --bad-soft: rgb(245 138 128 / 0.12);
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --bg: #1a1714;
+  --surface: #221e1a;
+  --surface-2: #2a2520;
+  --line: #36302a;
+  --line-strong: #4a4239;
+  --ink: #f1ece4;
+  --ink-2: #d2cabf;
+  --muted: #a39a8e;
+  --accent: #f08a52;
+  --accent-text: #f4a273;
+  --accent-ink: #1a1714;
+  --accent-soft: rgb(240 138 82 / 0.14);
+  --mark: rgb(240 150 80 / 0.34);
+  --good: #8fbf99;
+  --good-soft: rgb(143 191 153 / 0.12);
+  --bad: #e58a76;
+  --bad-soft: rgb(229 138 118 / 0.12);
+  --glass: rgb(34 30 26 / 0.6);
+  --glass-edge: rgb(255 255 255 / 0.09);
+  --shadow: 0 1px 0 rgb(0 0 0 / 0.2), 0 12px 28px -16px rgb(0 0 0 / 0.6);
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.3), 0 30px 60px -28px rgb(0 0 0 / 0.8);
   color-scheme: dark;
 }
 
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -76,6 +92,7 @@
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
   --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
   --color-mark: var(--mark);
@@ -84,27 +101,103 @@
   --color-bad: var(--bad);
   --color-bad-soft: var(--bad-soft);
   --shadow-panel: var(--shadow);
+  --shadow-float: var(--shadow-float);
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
-  font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, p, li { text-wrap: pretty; }
+h1, h2 { text-wrap: balance; }
+
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-text);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 ::selection {
   background: var(--mark);
+}
+
+/* Keys: buttons that look like something you press. A soft top highlight, a hairline edge, a small drop. */
+@layer components {
+  .key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    height: 2rem;
+    padding: 0 0.85rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 500;
+    transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms;
+  }
+  .key:active:not(:disabled) { transform: translateY(1px); }
+  .key:disabled { opacity: 0.5; }
+  .key-ink {
+    color: var(--bg);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0) 55%), var(--ink);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), inset 0 -1px 0 rgb(0 0 0 / 0.25), 0 0 0 1px var(--ink), 0 1px 2px rgb(22 19 15 / 0.25), 0 6px 14px -8px rgb(22 19 15 / 0.5);
+  }
+  .key-ink:hover:not(:disabled) { background-color: var(--ink-2); }
+  .key-ink:active:not(:disabled) { box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.35), 0 0 0 1px var(--ink); }
+  .key-light {
+    color: var(--ink);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.55), rgb(255 255 255 / 0)), var(--surface);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.8), 0 0 0 1px var(--line-strong), 0 1px 2px rgb(70 45 20 / 0.08);
+  }
+  .key-light:hover:not(:disabled) { background-color: var(--surface-2); }
+  .key-light:active:not(:disabled) { box-shadow: inset 0 1px 2px rgb(70 45 20 / 0.15), 0 0 0 1px var(--line-strong); }
+  .key-ghost {
+    color: var(--muted);
+    padding: 0 0.6rem;
+  }
+  .key-ghost:hover:not(:disabled) { color: var(--ink); background: var(--surface-2); }
+
+  /* Frosted glass, a web approximation: blur plus a light edge and inner highlight. */
+  .glass {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: inset 0 1px 0 var(--glass-edge), 0 0 0 1px var(--glass-edge), var(--shadow-float);
+  }
+}
+
+:root[data-theme="dark"] .key-light,
+:root[data-theme="dark"] .key-ink {
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0));
+}
+:root[data-theme="dark"] .key-light { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px var(--line-strong); }
+:root[data-theme="dark"] .key-ink { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 0 0 1px var(--ink), 0 6px 14px -8px rgb(0 0 0 / 0.8); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .key-light,
+  :root:not([data-theme="light"]) .key-ink {
+    background-image: linear-gradient(180deg, rgb(255 255 255 / 0.06), rgb(255 255 255 / 0));
+  }
+  :root:not([data-theme="light"]) .key-light { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px var(--line-strong); }
+  :root:not([data-theme="light"]) .key-ink { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 0 0 1px var(--ink), 0 6px 14px -8px rgb(0 0 0 / 0.8); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 /* A field the reviewer just changed glows once, then settles into a quiet tint. */
@@ -113,24 +206,45 @@ body {
   to { background-color: var(--accent-soft); }
 }
 .flash {
-  animation: flash 1.6s ease-out both;
+  animation: flash 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* The cited line, marked like a highlighter on paper. Each wrapped line gets its own stroke. */
 mark.evidence {
-  background: var(--mark);
   color: inherit;
-  border-radius: 3px;
-  box-shadow: 0 0 0 2px var(--mark);
+  background-color: transparent;
+  background-image: linear-gradient(100deg, rgb(0 0 0 / 0) 0.15em, var(--mark) 0.3em, var(--mark) calc(100% - 0.3em), rgb(0 0 0 / 0) calc(100% - 0.1em));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 0.05em 0.2em;
+  margin: 0 -0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   scroll-margin: 120px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes sweep {
+    from { background-size: 0% 100%; }
+  }
+  mark.evidence {
+    animation: sweep 0.9s cubic-bezier(0.3, 0.7, 0.2, 1) 0.15s both;
+  }
+  /* Below the fold, the stroke waits until the letter scrolls into view. */
+  @supports (animation-timeline: view()) {
+    .sweep-view mark.evidence {
+      animation: sweep linear both;
+      animation-timeline: view();
+      animation-range: entry 60% cover 40%;
+    }
+  }
+
   @keyframes rise {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: none; }
   }
   .rise {
-    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(var(--i, 0) * 90ms);
   }
   @supports (animation-timeline: view()) {
@@ -140,7 +254,19 @@ mark.evidence {
       animation-range: entry 0% entry 40%;
     }
   }
+
+  /* Hero cards drift a few pixels, each on its own clock, like paper on a slow breeze. */
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--tilt, 0deg)); }
+    50% { transform: translate3d(0, var(--lift, -8px), 0) rotate(var(--tilt, 0deg)); }
+  }
+  .drift {
+    animation: drift var(--dur, 9s) cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    animation-delay: var(--delay, 0s);
+  }
 }
+
+.tilt { transform: rotate(var(--tilt, 0deg)); }
 
 @media (prefers-reduced-motion: reduce) {
   .flash { animation: none; background-color: var(--accent-soft); }
@@ -153,4 +279,14 @@ mark.evidence {
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .light-hidden { display: block; }
   :root:not([data-theme="light"]) .dark-hidden { display: none; }
+}
+
+/* Photos are tuned for paper. At night they dim so they do not glare, and text on them turns light. */
+.photo-dim { transition: filter 300ms; }
+.on-photo { color: #2a1d12; }
+:root[data-theme="dark"] .photo-dim { filter: brightness(0.5) saturate(0.85); }
+:root[data-theme="dark"] .on-photo { color: #f6e6d6; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .photo-dim { filter: brightness(0.5) saturate(0.85); }
+  :root:not([data-theme="light"]) .on-photo { color: #f6e6d6; }
 }
