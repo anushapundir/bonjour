@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { day, money, dealTitle } from "../../lib/format";
 import { STAGES } from "../../lib/stages";
-import { PageHeader, StageBadge } from "../ui";
+import { Monogram, PageHeader, StageBadge } from "../ui";
 import { useDemo } from "./DemoState";
 
 type Key = "name" | "company" | "stage" | "amount" | "closeDate" | "owner" | "pending";
@@ -60,11 +60,11 @@ export function DealsTable() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Filter by deal, company, stage"
-            className="h-8 w-full rounded-md border border-line bg-surface pl-8 pr-2 text-[13px] text-ink placeholder:text-muted focus:border-line-strong focus:outline-none"
+            className="h-8 w-full rounded-full border border-line bg-surface pl-8 pr-3 text-[13px] text-ink shadow-[inset_0_1px_2px_rgb(70_45_20/0.05)] placeholder:text-muted focus:border-line-strong focus:outline-none"
           />
         </div>
       </PageHeader>
-      <div className="overflow-x-auto rounded-xl border border-line bg-surface">
+      <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-panel">
         <table className="w-full min-w-[760px] text-left text-[13px]">
           <thead>
             <tr className="border-b border-line">
@@ -74,7 +74,7 @@ export function DealsTable() {
                   <th key={c.key} aria-sort={on ? (sort.dir === 1 ? "ascending" : "descending") : "none"} className={`px-3 py-2 font-medium text-muted ${c.num ? "text-right" : ""}`}>
                     <button
                       onClick={() => setSort({ key: c.key, dir: on ? (-sort.dir as 1 | -1) : 1 })}
-                      className={`inline-flex items-center gap-1 text-xs hover:text-ink ${on ? "text-ink" : ""}`}
+                      className={`inline-flex items-center gap-1 font-mono text-[11px] hover:text-ink ${on ? "text-ink" : ""}`}
                     >
                       {c.label}
                       {on && (sort.dir === 1 ? <CaretUp size={11} weight="bold" /> : <CaretDown size={11} weight="bold" />)}
@@ -92,15 +92,24 @@ export function DealsTable() {
                     {r.name}
                   </Link>
                 </td>
-                <td className="px-3 py-2.5 text-ink-2">{r.company}</td>
+                <td className="px-3 py-2.5 text-ink-2">
+                  <span className="flex items-center gap-2">
+                    <Monogram name={r.company} className="size-6 text-[10px]" />
+                    {r.company}
+                  </span>
+                </td>
                 <td className="px-3 py-2.5">
                   <StageBadge stage={r.stage} />
                 </td>
-                <td className="px-3 py-2.5 text-right tabular-nums text-ink-2">{money(r.amount)}</td>
-                <td className="px-3 py-2.5 tabular-nums text-ink-2">{day(r.closeDate)}</td>
+                <td className="px-3 py-2.5 text-right font-mono text-[12.5px] text-ink">{money(r.amount)}</td>
+                <td className="px-3 py-2.5 font-mono text-[12.5px] text-ink-2">{day(r.closeDate)}</td>
                 <td className="px-3 py-2.5 text-ink-2">{r.owner}</td>
                 <td className="px-3 py-2.5 text-right tabular-nums">
-                  {r.pending > 0 ? <span className="rounded bg-accent-soft px-1.5 py-0.5 text-xs font-medium text-accent">{r.pending}</span> : <span className="text-muted">0</span>}
+                  {r.pending > 0 ? (
+                    <span className="rounded-full bg-accent-soft px-2 py-0.5 font-mono text-[11.5px] font-medium text-accent-text">{r.pending}</span>
+                  ) : (
+                    <span className="font-mono text-[12px] text-muted">0</span>
+                  )}
                 </td>
               </tr>
             ))}

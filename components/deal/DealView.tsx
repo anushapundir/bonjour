@@ -9,7 +9,7 @@ import type { Verdict } from "../../lib/score";
 import type { Activity, Company, Contact, Deal, Field, RecommenderId } from "../../lib/types";
 import type { VerifiedChange } from "../../lib/verify";
 import { useDemo, useUpdatedFields } from "../app/DemoState";
-import { StageBadge, btn } from "../ui";
+import { Monogram, StageBadge, btn } from "../ui";
 import { ActivityItem } from "./ActivityItem";
 import { ChangeCard } from "./ChangeCard";
 
@@ -51,10 +51,10 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
   // `k` changes with the value, so an updated field remounts and plays its highlight once.
   const field = (f: Field, value: React.ReactNode, k: string, label = FIELD_LABEL[f]) => (
     <div className="grid grid-cols-[96px_minmax(0,1fr)] items-baseline gap-3 py-2">
-      <dt className="text-xs text-muted">{label}</dt>
+      <dt className="font-mono text-[11px] text-muted">{label}</dt>
       <dd
         key={`${updated.has(f)}:${k}`}
-        className={`-mx-1.5 rounded px-1.5 py-0.5 text-[13px] text-ink ${updated.has(f) ? "flash" : ""}`}
+        className={`-mx-1.5 rounded-md px-1.5 py-0.5 text-[13.5px] text-ink ${updated.has(f) ? "flash" : ""}`}
       >
         {value}
       </dd>
@@ -70,32 +70,33 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
 
   return (
     <div>
-      <nav className="mb-3 text-xs text-muted">
+      <nav className="mb-3 font-mono text-[11px] text-muted">
         <Link href="/app/deals" className="hover:text-ink">
           Deals
         </Link>
         <span className="mx-1.5">/</span>
         <span>{company.name}</span>
       </nav>
-      <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
-        <h1 className="text-xl font-semibold tracking-tight text-ink">{base.name}</h1>
+      <div className="mb-7 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <Monogram name={company.name} className="size-10 text-[15px]" />
+        <h1 className="font-serif text-[28px] font-normal leading-tight tracking-[-0.02em] text-ink sm:text-[32px]">{base.name}</h1>
         <StageBadge stage={deal.stage} />
       </div>
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[260px_minmax(0,1fr)_minmax(340px,400px)]">
         {/* Record */}
         <section aria-labelledby="record" className="xl:sticky xl:top-20 xl:self-start">
-          <h2 id="record" className="mb-1 text-[13px] font-semibold text-ink">
+          <h2 id="record" className="mb-1 font-serif text-lg text-ink">
             Record
           </h2>
           <dl className="divide-y divide-line">
             {field("stage", deal.stage, deal.stage)}
-            {field("amount", <span className="tabular-nums">{money(deal.amount)}</span>, String(deal.amount))}
-            {field("closeDate", <span className="tabular-nums">{day(deal.closeDate)}</span>, deal.closeDate)}
+            {field("amount", <span className="font-mono text-[13px]">{money(deal.amount)}</span>, String(deal.amount))}
+            {field("closeDate", <span className="font-mono text-[13px]">{day(deal.closeDate)}</span>, deal.closeDate)}
             {field("nextStep", deal.nextStep, deal.nextStep)}
             <div className="grid grid-cols-[96px_minmax(0,1fr)] items-baseline gap-3 py-2">
-              <dt className="text-xs text-muted">Owner</dt>
-              <dd className="text-[13px] text-ink">{deal.ownerName}</dd>
+              <dt className="font-mono text-[11px] text-muted">Owner</dt>
+              <dd className="text-[13.5px] text-ink">{deal.ownerName}</dd>
             </div>
             {field(
               updated.has("addContact") ? "addContact" : "contactLeft",
@@ -103,8 +104,8 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
                 {people.map((p) => (
                   <li key={p.id} className="leading-snug">
                     <span className={p.left ? "text-muted line-through decoration-line-strong" : ""}>{p.name}</span>
-                    {p.left && <span className="ml-1.5 rounded bg-bad-soft px-1 py-px text-[11px] font-medium text-bad">Left</span>}
-                    {p.added && !p.left && <span className="ml-1.5 rounded bg-accent-soft px-1 py-px text-[11px] font-medium text-accent">New</span>}
+                    {p.left && <span className="ml-1.5 rounded-full bg-bad-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-bad">Left</span>}
+                    {p.added && !p.left && <span className="ml-1.5 rounded-full bg-accent-soft px-1.5 py-px font-mono text-[10.5px] font-medium text-accent-text">New</span>}
                     <span className="block text-xs text-muted">{p.title}</span>
                   </li>
                 ))}
@@ -153,14 +154,14 @@ export function DealView({ deal: base, company, contacts, activities, compare, t
 
         {/* Timeline */}
         <section aria-labelledby="timeline" className="min-w-0">
-          <h2 id="timeline" className="mb-3 text-[13px] font-semibold text-ink">
-            Activity <span className="font-normal text-muted">{activities.length}</span>
+          <h2 id="timeline" className="mb-3 font-serif text-lg text-ink">
+            Activity <span className="font-mono text-xs text-muted">{activities.length}</span>
           </h2>
           <ol className="space-y-3">
             {activities.map((a) => {
               const mine = active?.activityId === a.id;
               return (
-                <li key={a.id} className={`rounded-lg transition-shadow ${mine ? "ring-2 ring-mark" : ""}`}>
+                <li key={a.id} className={`rounded-[14px] transition-shadow ${mine ? "ring-2 ring-accent/50 ring-offset-2 ring-offset-bg" : ""}`}>
                   <ActivityItem activity={a} highlight={mine ? findQuote(a.body, active.quote) : null} />
                 </li>
               );
@@ -219,9 +220,9 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
   const committed = !isMine || mine.source === "committed";
 
   return (
-    <div className="rounded-xl border border-line bg-surface-2/60 p-3">
+    <div className="rounded-[20px] border border-line bg-surface-2/60 p-3 shadow-[inset_0_1px_0_rgb(255_255_255/0.4)]">
       <div className="flex items-center justify-between gap-2 px-1 pb-3">
-        <h2 id="proposals" className="text-[13px] font-semibold text-ink">
+        <h2 id="proposals" className="font-serif text-lg text-ink">
           Proposed changes
         </h2>
         <button onClick={runLive} disabled={running} className={btn.secondary}>
@@ -230,7 +231,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
         </button>
       </div>
 
-      <div role="tablist" aria-label="Compare recommenders" className="mb-3 grid grid-cols-3 gap-0.5 rounded-lg border border-line bg-surface p-0.5">
+      <div role="tablist" aria-label="Compare recommenders" className="mb-3 grid grid-cols-3 gap-0.5 rounded-full border border-line bg-surface-2 p-0.5 shadow-[inset_0_1px_2px_rgb(70_45_20/0.08)]">
         {TABS.map((t) => (
           <button
             key={t.id}
@@ -240,7 +241,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
               setTab(t.id);
               onTab();
             }}
-            className={`h-7 rounded-md text-xs font-medium transition-colors ${tab === t.id ? "bg-surface-2 text-ink" : "text-muted hover:text-ink"}`}
+            className={`h-7 rounded-full text-xs font-medium transition-[background-color,box-shadow,color] ${tab === t.id ? "bg-surface text-ink shadow-[0_0_0_1px_var(--line),0_1px_2px_rgb(70_45_20/0.12)]" : "text-muted hover:text-ink"}`}
           >
             {t.label}
           </button>
@@ -255,14 +256,14 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
             : ""}
         {!isMine && "Read only, graded against the hand-written answer key."}
         {isMine && mine.source === "live" && (
-          <button onClick={() => demo.setLive(deal.id, null)} className="font-medium text-accent hover:underline">
+          <button onClick={() => demo.setLive(deal.id, null)} className="font-medium text-accent-text underline-offset-2 hover:underline">
             Show committed run
           </button>
         )}
       </p>
 
       {error && (
-        <div className="mb-3 rounded-lg border border-line bg-surface p-3 text-[12.5px] leading-relaxed text-ink-2" role="alert">
+        <div className="mb-3 rounded-[14px] border border-line bg-surface p-3 text-[12.5px] leading-relaxed text-ink-2" role="alert">
           {error.message}
           {error.needsToken && (
             <form
@@ -281,7 +282,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
                 value={token}
                 onChange={(e) => setToken(e.target.value)}
                 placeholder="Access token"
-                className="h-8 min-w-0 flex-1 rounded-md border border-line bg-surface px-2 text-[13px] text-ink placeholder:text-muted"
+                className="h-8 min-w-0 flex-1 rounded-full border border-line-strong bg-surface px-3 font-mono text-[12.5px] text-ink placeholder:text-muted"
               />
               <button className={btn.secondary}>Retry</button>
             </form>
@@ -303,7 +304,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
 
       <div className="space-y-2">
         {changes.length === 0 && (view.ran || isMine) && (
-          <div className="rounded-lg border border-dashed border-line-strong px-4 py-6 text-center text-[13px] text-muted">
+          <div className="rounded-[14px] border border-dashed border-line-strong px-4 py-6 text-center text-[13px] text-muted">
             No changes proposed. Nothing in the activity changes this record.
           </div>
         )}
@@ -344,7 +345,7 @@ function Proposals({ deal, contacts, compare, tab, setTab, trap, activeKey, onEv
       </div>
 
       {committed && view.ran && view.missed > 0 && (
-        <p className="mt-3 rounded-lg bg-bad-soft px-3 py-2 text-[12.5px] text-bad">
+        <p className="mt-3 rounded-[12px] bg-bad-soft px-3 py-2 text-[12.5px] text-bad">
           Missed {view.missed} expected {view.missed === 1 ? "change" : "changes"} on this deal.
         </p>
       )}

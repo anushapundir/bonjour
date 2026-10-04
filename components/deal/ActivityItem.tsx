@@ -32,10 +32,10 @@ export function ActivityItem({ activity, highlight, clip }: Props) {
   }
 
   return (
-    <article id={activity.id} className="scroll-mt-24 rounded-lg border border-line bg-surface">
-      <header className="flex items-start gap-3 border-b border-line px-4 py-3">
-        <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-md bg-surface-2 text-muted">
-          <Icon size={15} />
+    <article id={activity.id} className="scroll-mt-24 rounded-[14px] border border-line bg-surface shadow-panel">
+      <header className="flex items-start gap-3 border-b border-line/80 px-4 py-3">
+        <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-line bg-surface-2 text-muted">
+          <Icon size={14} />
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
@@ -43,14 +43,14 @@ export function ActivityItem({ activity, highlight, clip }: Props) {
               <span className="font-medium">{personName(activity.from)}</span>
               {activity.to && <span className="text-muted"> to {personName(activity.to)}</span>}
             </p>
-            <time dateTime={activity.at} className="shrink-0 text-xs tabular-nums text-muted">
+            <time dateTime={activity.at} className="shrink-0 font-mono text-[11px] text-muted">
               {label}, {stamp(activity.at)}
             </time>
           </div>
           {activity.subject && <p className="mt-0.5 truncate text-[13px] font-medium text-ink-2">{activity.subject}</p>}
         </div>
       </header>
-      <div className="whitespace-pre-wrap break-words px-4 py-3 text-[13.5px] leading-relaxed text-ink-2">
+      <div className="whitespace-pre-wrap break-words px-4 py-3.5 text-[14px] leading-[1.7] text-ink-2">
         {range ? (
           <>
             {body.slice(0, range.start)}

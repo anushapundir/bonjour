@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { day, money, dealTitle } from "../../lib/format";
 import { STAGES, type Stage } from "../../lib/stages";
-import { PageHeader } from "../ui";
+import { Monogram, PageHeader, stageTone } from "../ui";
 import { useDemo } from "./DemoState";
 
 export function Pipeline() {
@@ -14,41 +14,49 @@ export function Pipeline() {
 
   return (
     <div>
-      <PageHeader title="Pipeline" sub={`${money(open)} open across ${deals.length} deals`}>
+      <PageHeader
+        title="Pipeline"
+        sub={
+          <>
+            <span className="font-mono text-[13px] text-ink-2">{money(open)}</span> open across <span className="font-mono text-[13px] text-ink-2">{deals.length}</span> deals
+          </>
+        }
+      >
         <p className="flex items-center gap-1.5 text-xs text-muted">
-          <span className="size-1.5 rounded-full bg-accent" /> Bonjour has changes for you to review
+          <span className="size-2 rounded-full bg-accent shadow-[0_0_0_3px_var(--accent-soft)]" /> Bonjour has changes for you to review
         </p>
       </PageHeader>
       <div className="relative -mx-4 overflow-x-auto px-4 pb-4 lg:-mx-8 lg:px-8">
-        <div className="grid auto-cols-[248px] grid-flow-col gap-3">
+        <div className="grid auto-cols-[256px] grid-flow-col gap-4">
           {STAGES.map((s) => {
             const col = deals.filter((d) => d.stage === s.name);
             return (
-              <section key={s.name} aria-label={s.name} className="flex flex-col rounded-xl bg-surface-2/60 p-2">
-                <header className="flex items-center gap-2 px-1.5 pb-2 pt-1">
-                  <span className="size-2 rounded-full" style={{ background: s.color }} />
-                  <h2 className="text-[13px] font-medium text-ink">{s.name}</h2>
-                  <span className="text-xs tabular-nums text-muted">{col.length}</span>
-                  <span className="ml-auto text-xs tabular-nums text-muted">{col.length ? money(col.reduce((n, d) => n + d.amount, 0)) : ""}</span>
+              <section key={s.name} aria-label={s.name} className="flex flex-col rounded-[20px] border border-line/60 bg-surface-2/50 p-2">
+                <header className="flex items-center gap-2 px-2 pb-2.5 pt-1.5">
+                  <span className="size-2 rounded-full" style={{ background: stageTone(s.name) }} />
+                  <h2 className="font-serif text-[16px] text-ink">{s.name}</h2>
+                  <span className="font-mono text-[11px] text-muted">{col.length}</span>
+                  <span className="ml-auto font-mono text-[11px] text-muted">{col.length ? money(col.reduce((n, d) => n + d.amount, 0)) : ""}</span>
                 </header>
                 <ul className="flex min-h-24 flex-col gap-2">
                   {col.map((d) => {
                     const n = pending(d.id).length;
                     return (
-                      <li key={d.id} className="rounded-lg border border-line bg-surface p-3 shadow-[0_1px_0_var(--line)] transition-colors hover:border-line-strong">
+                      <li key={d.id} className="rounded-[14px] border border-line bg-surface p-3 shadow-panel transition-[border-color,transform] duration-200 hover:-translate-y-px hover:border-line-strong">
                         <Link href={`/app/deals/${d.id}`} className="block">
-                          <span className="flex items-start justify-between gap-2">
-                            <span className="text-[13px] font-medium leading-snug text-ink">{company(d.companyId)}</span>
+                          <span className="flex items-start gap-2.5">
+                            <Monogram name={company(d.companyId)} />
+                            <span className="min-w-0 flex-1 text-[13.5px] font-medium leading-snug text-ink">{company(d.companyId)}</span>
                             {n > 0 && (
-                              <span title={`${n} proposed ${n === 1 ? "change" : "changes"}`} className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent">
+                              <span title={`${n} proposed ${n === 1 ? "change" : "changes"}`} className="mt-1.5 size-2 shrink-0 rounded-full bg-accent shadow-[0_0_0_3px_var(--accent-soft)]">
                                 <span className="sr-only">{n} proposed changes</span>
                               </span>
                             )}
                           </span>
-                          <span className="mt-0.5 block text-xs leading-snug text-muted">{dealTitle(d.name)}</span>
-                          <span className="mt-2.5 flex items-center justify-between text-xs tabular-nums">
-                            <span className="font-medium text-ink-2">{money(d.amount)}</span>
-                            <span className="text-muted">Close {day(d.closeDate)}</span>
+                          <span className="mt-1 block pl-[38px] text-xs leading-snug text-muted">{dealTitle(d.name)}</span>
+                          <span className="mt-3 flex items-center justify-between font-mono text-[11.5px]">
+                            <span className="text-ink">{money(d.amount)}</span>
+                            <span className="text-muted">close {day(d.closeDate)}</span>
                           </span>
                         </Link>
                         <label className="sr-only" htmlFor={`stage-${d.id}`}>
@@ -58,7 +66,7 @@ export function Pipeline() {
                           id={`stage-${d.id}`}
                           value={d.stage}
                           onChange={(e) => setStage(d.id, e.target.value as Stage)}
-                          className="mt-2.5 h-7 w-full rounded-md border border-line bg-surface-2 px-1.5 text-xs text-ink-2 focus:border-line-strong focus:outline-none"
+                          className="mt-3 h-7 w-full rounded-full border border-line bg-surface-2/70 px-2.5 text-xs text-ink-2 focus:border-line-strong focus:outline-none"
                         >
                           {STAGES.map((o) => (
                             <option key={o.name}>{o.name}</option>
@@ -67,7 +75,7 @@ export function Pipeline() {
                       </li>
                     );
                   })}
-                  {col.length === 0 && <li className="rounded-lg border border-dashed border-line px-3 py-4 text-center text-xs text-muted">No deals</li>}
+                  {col.length === 0 && <li className="rounded-[14px] border border-dashed border-line-strong/70 px-3 py-5 text-center font-serif text-[14px] italic text-muted">No deals here yet</li>}
                 </ul>
               </section>
             );

@@ -34,15 +34,15 @@ export function UserMenu() {
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Account menu"
-        className="grid size-8 place-items-center rounded-full bg-accent-soft text-xs font-semibold text-accent"
+        className="grid size-8 place-items-center rounded-full bg-[#e7b79b] font-serif text-[13px] font-medium text-[#3a2b1e] shadow-[inset_0_1px_0_rgb(255_255_255/0.5),inset_0_0_0_1px_rgb(58_43_30/0.1)]"
       >
         AL
       </button>
       {open && (
-        <div role="menu" className="absolute right-0 top-10 z-50 w-60 rounded-lg border border-line bg-surface p-1 shadow-panel">
+        <div role="menu" className="absolute right-0 top-10 z-50 w-60 rounded-xl border border-line bg-surface p-1 shadow-float">
           <div className="px-2.5 py-2">
             <p className="text-sm font-medium text-ink">Alex Laurent</p>
-            <p className="text-xs text-muted">demo@bonjour.dev</p>
+            <p className="font-mono text-[11.5px] text-muted">demo@bonjour.dev</p>
           </div>
           <div className="my-1 h-px bg-line" />
           <button
@@ -51,13 +51,13 @@ export function UserMenu() {
               reset();
               setDone(true);
             }}
-            className="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13px] text-ink hover:bg-surface-2"
+            className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[13px] text-ink hover:bg-surface-2"
           >
             <ArrowCounterClockwise size={15} className="text-muted" />
             {done ? "Demo reset" : "Reset demo"}
           </button>
           <form action={signOut}>
-            <button role="menuitem" className="flex w-full items-center gap-2 rounded-md px-2.5 py-2 text-left text-[13px] text-ink hover:bg-surface-2">
+            <button role="menuitem" className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[13px] text-ink hover:bg-surface-2">
               <SignOut size={15} className="text-muted" />
               Sign out
             </button>

@@ -40,12 +40,13 @@ function Nav({ onNavigate }: { onNavigate?: () => void }) {
             href={href}
             onClick={onNavigate}
             aria-current={active ? "page" : undefined}
-            className={`flex h-8 items-center gap-2.5 rounded-md px-2 text-[13px] transition-colors ${
-              active ? "bg-surface-2 font-medium text-ink" : "text-muted hover:bg-surface-2 hover:text-ink"
+            className={`group relative flex h-8 items-center gap-2.5 rounded-full px-2.5 text-[13.5px] transition-colors ${
+              active ? "font-medium text-ink" : "text-muted hover:text-ink"
             }`}
           >
-            <Icon size={16} weight={active ? "fill" : "regular"} className={active ? "text-accent" : ""} />
+            <Icon size={16} weight={active ? "regular" : "light"} />
             {label}
+            {active && <span className="ml-auto size-1.5 rounded-full bg-ink" aria-hidden="true" />}
           </Link>
         );
       })}
@@ -60,24 +61,24 @@ export function Shell({ children }: { children: React.ReactNode }) {
   useEffect(() => setOpen(false), [path]);
 
   return (
-    <div className="min-h-dvh lg:grid lg:grid-cols-[216px_minmax(0,1fr)]">
-      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-bg px-3 py-4 lg:flex">
-        <Link href="/app" className="mb-6 px-2">
+    <div className="min-h-dvh lg:grid lg:grid-cols-[224px_minmax(0,1fr)]">
+      <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-bg px-3 py-5 lg:flex">
+        <Link href="/app" className="mb-8 px-2.5">
           <Logo />
         </Link>
         <Nav />
-        <p className="mt-auto px-2 text-xs leading-relaxed text-muted">
-          Demo workspace with {data.deals.length} hand-written deals. Nothing you do here leaves your browser.
+        <p className="mt-auto px-2.5 text-xs leading-relaxed text-muted">
+          A demo workspace with <span className="font-mono text-ink-2">{data.deals.length}</span> hand-written deals. Nothing you do here leaves your browser.
         </p>
       </aside>
 
       {open && (
         <div className="fixed inset-0 z-40 lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
-          <button className="absolute inset-0 bg-black/40" aria-label="Close menu" onClick={() => setOpen(false)} />
+          <button className="absolute inset-0 bg-[#16130f]/40" aria-label="Close menu" onClick={() => setOpen(false)} />
           <div className="absolute inset-y-0 left-0 flex w-64 flex-col border-r border-line bg-bg px-3 py-4 shadow-panel">
-            <div className="mb-6 flex items-center justify-between px-2">
+            <div className="mb-8 flex items-center justify-between px-2.5">
               <Logo />
-              <button onClick={() => setOpen(false)} aria-label="Close menu" className="grid size-8 place-items-center rounded-md text-muted hover:bg-surface-2">
+              <button onClick={() => setOpen(false)} aria-label="Close menu" className="grid size-8 place-items-center rounded-full text-muted hover:bg-surface-2">
                 <X size={16} />
               </button>
             </div>
@@ -87,8 +88,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
       )}
 
       <div className="min-w-0">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-2 border-b border-line bg-bg/85 px-4 backdrop-blur lg:px-6">
-          <button onClick={() => setOpen(true)} aria-label="Open menu" className="grid size-8 place-items-center rounded-md text-muted hover:bg-surface-2 lg:hidden">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-2 border-b border-line bg-bg/80 px-4 backdrop-blur-md lg:px-6">
+          <button onClick={() => setOpen(true)} aria-label="Open menu" className="grid size-8 place-items-center rounded-full text-muted hover:bg-surface-2 lg:hidden">
             <List size={18} />
           </button>
           <Search />
