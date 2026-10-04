@@ -79,7 +79,7 @@ export default function Landing() {
 
   return (
     <div className="overflow-x-clip">
-      <header className="nav-edge sticky top-0 z-30 border-b bg-bg/95 backdrop-blur-sm">
+      <header className="nav-edge sticky top-0 z-30 border-b bg-bg">
         <div className="mx-auto flex h-14 max-w-6xl items-center gap-8 px-4 sm:px-6 md:grid md:grid-cols-[1fr_auto_1fr]">
           <Link href="/" aria-label="Bonjour home" className="justify-self-start">
             <Logo />
@@ -176,7 +176,7 @@ export default function Landing() {
                 </Window>
 
                 {bon && naive && (
-                  <Window title="Eval, 12 deals" className="absolute bottom-10 left-10 w-[340px]">
+                  <Window title={`Eval, ${bon.deals} deals`} className="absolute bottom-10 left-10 w-[340px]">
                     <MiniScore board={scoreboard!} />
                   </Window>
                 )}
@@ -319,7 +319,7 @@ export default function Landing() {
               )}
             </Tile>
 
-            <Tile title="Compared with a plain prompt" body="Same model, same output shape, a one-line prompt. Correct changes out of 15 expected.">
+            <Tile title="Compared with a plain prompt" body={`Same model, same output shape, a one-line prompt. Correct changes out of ${bon?.expected ?? "the"} expected.`}>
               <div className="grid w-[260px] grid-cols-3 gap-1.5">
                 {RECOMMENDERS.map((id) => {
                   const a = agg(id);
@@ -350,9 +350,11 @@ export default function Landing() {
         {/* The traps */}
         <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="reveal max-w-[22ch] text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">Twelve test deals. Each one hides a trap.</h2>
+            <h2 className="reveal max-w-[22ch] text-[26px] font-medium leading-[1.15] tracking-[-0.03em] text-ink sm:text-[34px]">
+              {deals.length} test deals. Each one hides a trap.
+            </h2>
             <p className="reveal mt-3 max-w-[56ch] text-[15px] leading-relaxed text-muted">
-              Six of them, with the line that sets the trap and what each recommender did in the committed run.
+              {traps.length} of them, with the line that sets the trap and what each recommender did in the committed run.
             </p>
           </div>
           {/* Starts on the content edge and bleeds off the right of the viewport */}
@@ -503,7 +505,7 @@ function SideNav({ active }: { active: string }) {
     <div className="space-y-4">
       {NAV_GROUPS.map((g) => (
         <div key={g.label}>
-          <p className="mb-1 px-2 text-[11px] font-medium text-faint">{g.label}</p>
+          <p className="mb-1 px-2 text-[11px] font-medium text-muted">{g.label}</p>
           {g.items.map(({ href, label, icon: Icon, color }) => (
             <p key={href} className={`flex h-7 items-center gap-2 rounded-[7px] px-2 text-[12.5px] ${href === active ? "bg-accent-soft font-medium text-ink" : "text-ink-2"}`}>
               <Square color={color} className="size-4 rounded-[4px]">
@@ -563,14 +565,14 @@ function MiniScore({ board }: { board: Scoreboard }) {
 }
 
 function Sup({ n }: { n: string }) {
-  return <sup className="ml-1 align-super font-mono text-[11px] font-normal tracking-normal text-faint">{n}</sup>;
+  return <sup className="ml-1 align-super font-mono text-[11px] font-normal tracking-normal text-muted">{n}</sup>;
 }
 
 function Step({ n, title, body, children }: { n: string; title: string; body: string; children: React.ReactNode }) {
   return (
     <div className="reveal">
       <div className="grid h-[232px] place-items-center rounded-[14px] border border-line bg-surface p-5">{children}</div>
-      <p className="mt-5 font-mono text-[11px] text-[#ea580c]">{n}</p>
+      <p className="mt-5 font-mono text-[11px] text-muted">{n}</p>
       <h3 className="mt-1 text-[15px] font-medium tracking-[-0.01em] text-ink">{title}</h3>
       <p className="mt-1 max-w-[38ch] text-[13.5px] leading-relaxed text-muted">{body}</p>
     </div>

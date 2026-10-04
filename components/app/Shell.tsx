@@ -18,7 +18,7 @@ function Nav({ onNavigate }: { onNavigate?: () => void }) {
     <nav className="flex flex-col gap-5" aria-label="App">
       {NAV_GROUPS.map((g) => (
         <div key={g.label}>
-          <p className="mb-1 px-2 text-[11.5px] font-medium text-faint">{g.label}</p>
+          <p className="mb-1 px-2 text-[11.5px] font-medium text-muted">{g.label}</p>
           <ul className="flex flex-col gap-px">
             {g.items.map(({ href, label, icon: Icon, color }) => {
               const active = href === "/app" ? path === "/app" : path.startsWith(href);
