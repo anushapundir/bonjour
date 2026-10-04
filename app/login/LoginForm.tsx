@@ -6,7 +6,7 @@ import { DEMO_EMAIL, DEMO_PASSWORD } from "../../lib/demo";
 import { signIn } from "./actions";
 
 const input =
-  "h-9 w-full rounded-md border border-line-strong bg-surface px-3 text-sm text-ink placeholder:text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-mark";
+  "h-10 w-full rounded-[12px] border border-line-strong bg-bg px-3.5 text-sm text-ink shadow-[inset_0_1px_2px_rgb(70_45_20/0.06)] placeholder:text-muted focus:border-accent-text focus:outline-none focus:ring-3 focus:ring-accent-soft";
 
 export function LoginForm({ next }: { next: string }) {
   const [error, action, pending] = useActionState(signIn, null);
@@ -20,13 +20,13 @@ export function LoginForm({ next }: { next: string }) {
 
   return (
     <>
-      <div className="mt-6 rounded-lg border border-line bg-surface-2/60 p-3.5">
+      <div className="mt-6 rounded-[16px] border border-dashed border-line-strong bg-surface-2/50 p-4">
         <p className="text-[13px] font-medium text-ink">Demo account</p>
-        <dl className="mt-1.5 grid grid-cols-[72px_1fr] gap-y-0.5 text-[13px]">
+        <dl className="mt-2 grid grid-cols-[76px_1fr] gap-y-1 text-[13px]">
           <dt className="text-muted">Email</dt>
-          <dd className="text-ink-2">{DEMO_EMAIL}</dd>
+          <dd className="font-mono text-[12.5px] text-ink">{DEMO_EMAIL}</dd>
           <dt className="text-muted">Password</dt>
-          <dd className="text-ink-2">{DEMO_PASSWORD}</dd>
+          <dd className="font-mono text-[12.5px] text-ink">{DEMO_PASSWORD}</dd>
         </dl>
         <button type="button" onClick={fill} className={`${btn.secondary} mt-3 w-full`}>
           Fill demo credentials
@@ -48,11 +48,11 @@ export function LoginForm({ next }: { next: string }) {
           <input ref={password} id="password" name="password" type="password" autoComplete="current-password" required className={input} />
         </div>
         {error && (
-          <p role="alert" className="rounded-md bg-bad-soft px-3 py-2 text-[13px] text-bad">
+          <p role="alert" className="rounded-[12px] bg-bad-soft px-3 py-2 text-[13px] text-bad">
             {error}
           </p>
         )}
-        <button disabled={pending} className={`${btn.primary} h-9 w-full text-sm`}>
+        <button disabled={pending} className={`${btn.primary} h-10 w-full text-sm`}>
           {pending ? "Signing in" : "Sign in"}
         </button>
       </form>
